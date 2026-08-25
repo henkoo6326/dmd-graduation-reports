@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마스터 — 계원예대 DMD 졸업작품 주제 발굴 종합 리포트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--ink:#1d1d1f;--ink-2:#494949;--gray:#86868b;--gray-2:#a1a1a6;--fill:#f5f5f7;--fill-2:#e8e8ed;--line:#d2d2d7;--blue:#0071e3;--blue-deep:#0040dd;--green:#248a3d;--orange:#c93400;--bg:#fff;--radius:20px;--radius-s:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;background:var(--bg);color:var(--ink);letter-spacing:-.02em;line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{line-height:1.3;letter-spacing:-.02em;font-weight:700;}em,i{font-style:normal;}
+a{color:var(--blue);text-decoration:none;}a:hover{text-decoration:underline;}
+.layout{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;max-width:1440px;margin:0 auto;padding:0 40px;}
+.side{grid-column:1/span 3;position:sticky;top:0;align-self:start;height:100vh;display:flex;flex-direction:column;padding:48px 24px 40px 0;border-right:1px solid var(--fill-2);}
+.main{grid-column:4/span 9;padding:48px 0 120px 48px;min-width:0;}
+.side .mark{font-size:13px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.06em;margin-bottom:20px;}
+.side .site-title{font-size:27px;font-weight:800;line-height:1.3;margin-bottom:12px;}
+.side .site-sub{font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:32px;}
+.side nav{display:flex;flex-direction:column;gap:2px;}
+.side nav a{display:flex;align-items:baseline;gap:10px;padding:9px 14px;border-radius:10px;font-size:14.5px;font-weight:500;color:var(--ink-2);}
+.side nav a .n{font-size:11px;font-weight:700;color:var(--gray-2);font-variant-numeric:tabular-nums;}
+.side nav a:hover{background:var(--fill);text-decoration:none;}
+.side .side-foot{margin-top:auto;font-size:12px;color:var(--gray-2);line-height:1.6;}
+section{padding:64px 0 8px;}section:first-of-type{padding-top:8px;}
+.eyebrow{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:12px;}
+.sec-title{font-size:clamp(30px,3.2vw,44px);font-weight:800;line-height:1.3;margin-bottom:16px;}
+.sec-lead{font-size:19px;line-height:1.6;color:var(--ink-2);max-width:790px;margin-bottom:36px;}
+.sec-lead strong{color:var(--ink);}
+.divider{height:1px;background:var(--fill-2);margin:64px 0 0;}
+.hero{padding:24px 0 0;}
+.hero .kicker{display:inline-block;font-size:13px;font-weight:700;background:var(--fill);color:var(--ink-2);padding:7px 14px;border-radius:100px;margin-bottom:24px;}
+.hero h1{font-size:clamp(36px,4.4vw,60px);font-weight:800;line-height:1.3;margin-bottom:24px;}
+.hero h1 .accent{color:var(--blue);}
+.hero p{font-size:20px;line-height:1.6;color:var(--ink-2);max-width:780px;}
+.verdict{margin-top:36px;background:var(--ink);color:#fff;border-radius:var(--radius);padding:32px 36px;}
+.verdict .vk{font-size:13px;font-weight:700;color:#6bb6ff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;}
+.verdict .vrow{display:flex;gap:16px;align-items:baseline;padding:12px 0;border-top:1px solid rgba(255,255,255,.12);}
+.verdict .vrow:first-of-type{border-top:none;}
+.verdict .vr-rank{font-size:13px;font-weight:800;color:#6bb6ff;white-space:nowrap;flex-shrink:0;width:70px;}
+.verdict .vr-name{font-size:20px;font-weight:800;}
+.verdict .vr-desc{font-size:14px;color:rgba(255,255,255,.7);margin-top:2px;}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px;}
+.stat{background:var(--fill);border-radius:var(--radius-s);padding:20px;}
+.stat .num{font-size:26px;font-weight:800;line-height:1.2;}
+.stat .lbl{font-size:12px;color:var(--gray);margin-top:4px;line-height:1.5;}
+/* journey arc */
+.arc{display:flex;flex-direction:column;gap:14px;}
+.arc-step{display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;background:var(--fill);border-radius:var(--radius);padding:24px 28px;}
+.arc-n{font-size:26px;font-weight:800;color:var(--gray-2);font-variant-numeric:tabular-nums;}
+.arc-b h4{font-size:18px;margin-bottom:5px;}
+.arc-b p{font-size:14px;color:var(--ink-2);line-height:1.55;}
+.arc-link a{font-size:13px;font-weight:700;background:#fff;border:1px solid var(--fill-2);border-radius:100px;padding:9px 16px;white-space:nowrap;}
+/* formula */
+.formula{margin:0 0 20px;background:var(--ink);color:#fff;border-radius:var(--radius);padding:34px 38px;}
+.formula .t{font-size:13px;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;}
+.formula .bad{font-size:19px;font-weight:700;color:rgba(255,255,255,.42);text-decoration:line-through;text-decoration-color:rgba(255,120,120,.55);margin-bottom:10px;}
+.formula .good{font-size:22px;font-weight:800;line-height:1.45;}
+.formula .good .hl{color:#6bb6ff;}
+.principle{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.pr{background:var(--fill);border-radius:var(--radius);padding:24px 26px;}
+.pr h4{font-size:16px;margin-bottom:8px;}
+.pr p{font-size:14px;color:var(--ink-2);line-height:1.6;}
+/* matrix */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead th{text-align:left;font-size:11.5px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;padding:0 12px 10px;border-bottom:1px solid var(--line);}
+tbody td{padding:14px 12px;border-bottom:1px solid var(--fill-2);vertical-align:middle;line-height:1.5;color:var(--ink-2);}
+tbody tr:last-child td{border-bottom:none;}
+.m-name{font-weight:800;color:var(--ink);}
+.m-desc{font-size:12px;font-weight:500;color:var(--gray);margin-top:3px;}
+.m-c{text-align:center;font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink);}
+.m-anc,.m-cmp{font-size:12.5px;}
+.m-verd{font-weight:800;font-size:13px;white-space:nowrap;}
+tr.m-go .m-verd{color:var(--green);}tr.m-blue .m-verd{color:var(--blue);}tr.m-warn .m-verd{color:#9a6700;}tr.m-stop .m-verd{color:var(--orange);}
+tr.m-go td{background:#f4faf6;}
+.mg{display:inline-block;font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:6px;}
+.g-high{background:#e7f6ec;color:var(--green);}.g-med{background:#fff4e0;color:#9a6700;}.g-low{background:#fdeee7;color:var(--orange);}
+.table-wrap{border:1px solid var(--fill-2);border-radius:var(--radius);padding:20px 12px 12px;overflow-x:auto;}
+/* rec */
+.rec{border:1px solid var(--fill-2);border-radius:var(--radius);padding:34px 36px;margin-top:24px;}
+.rec-head{display:flex;gap:18px;align-items:baseline;margin-bottom:20px;}
+.rank{font-size:14px;font-weight:800;color:#fff;background:var(--ink);border-radius:100px;padding:8px 16px;white-space:nowrap;flex-shrink:0;}
+.rec-title{font-size:23px;font-weight:800;line-height:1.3;}
+.rec-tag{font-size:15.5px;color:var(--ink-2);margin-top:8px;line-height:1.5;}
+.rec-why{background:#e8f2ff;border-radius:var(--radius);padding:24px 28px;margin-bottom:16px;}
+.rk{font-size:11.5px;font-weight:800;color:var(--blue-deep);text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;}
+.rec-why p{font-size:15px;line-height:1.65;color:var(--ink);}
+.rk2{font-size:12px;font-weight:800;color:var(--gray);text-transform:uppercase;letter-spacing:.03em;margin:20px 0 12px;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:4px;}
+.rc{border-radius:var(--radius);padding:22px 24px;}
+.rc h4{font-size:15px;margin-bottom:10px;}
+.rc p{font-size:14px;line-height:1.65;}
+.rc.dark{background:var(--ink);color:#fff;}.rc.dark h4{color:#6bb6ff;}.rc.dark p{color:rgba(255,255,255,.9);}
+.rc.blue{background:#e8f2ff;}.rc.blue h4{color:var(--blue-deep);}.rc.blue p{color:var(--ink);font-weight:600;}
+.rc.go{background:#f0f7f2;}.rc.go h4{color:var(--green);}
+.rc.warn{background:#fff9f0;border:1px solid #f4e3cf;}.rc.warn h4{color:#9a6700;}
+.tick,.warnl{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.tick li,.warnl li{font-size:13px;line-height:1.55;color:var(--ink-2);padding-left:20px;position:relative;}
+.tick li::before{content:"→";position:absolute;left:0;color:var(--green);font-weight:700;}
+.warnl li::before{content:"→";position:absolute;left:0;color:var(--orange);font-weight:700;}
+.dp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:4px;}
+.dp{background:var(--fill);border-radius:var(--radius-s);padding:14px 14px;}
+.dp-d{font-size:12px;font-weight:700;line-height:1.35;}
+.dp-u{font-size:11px;color:var(--blue);margin-top:5px;}
+.anchor{background:var(--fill);border-radius:var(--radius);padding:18px 22px;font-size:14px;line-height:1.6;color:var(--ink);margin-bottom:6px;}
+.wild{border:1px dashed var(--line);border-radius:var(--radius);padding:26px 30px;margin-top:24px;}
+.wild h3{font-size:19px;margin-bottom:6px;}
+.wild .wk{font-size:12px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;}
+.wild p{font-size:14.5px;line-height:1.6;color:var(--ink-2);}
+.wild p b{color:var(--ink);}
+/* actions */
+.act{display:flex;flex-direction:column;gap:12px;}
+.act-row{display:grid;grid-template-columns:auto 1fr;gap:16px;background:var(--fill);border-radius:var(--radius);padding:20px 26px;align-items:baseline;}
+.act-w{font-size:13px;font-weight:800;color:var(--blue);white-space:nowrap;}
+.act-b{font-size:14.5px;line-height:1.6;color:var(--ink-2);}
+.act-b b{color:var(--ink);}
+.callout{margin-top:20px;background:#e8f2ff;border-radius:var(--radius);padding:24px 28px;font-size:15.5px;line-height:1.6;}
+.callout b{color:var(--blue-deep);}
+.appx-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.appx{background:var(--fill);border-radius:var(--radius);padding:24px 28px;}
+.appx h4{font-size:15px;margin-bottom:12px;}
+.appx ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.appx li{font-size:13.5px;line-height:1.6;color:var(--ink-2);}
+.appx li b{color:var(--ink);}
+.disclaimer{margin-top:24px;font-size:13px;color:var(--gray);line-height:1.6;border-top:1px solid var(--fill-2);padding-top:20px;}
+@media (max-width:1100px){.principle,.two,.hero-stats,.appx-grid{grid-template-columns:1fr;}.dp-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:900px){.layout{padding:0 20px;display:block;}.side{position:static;height:auto;border-right:none;border-bottom:1px solid var(--fill-2);padding:32px 0 24px;}.side nav{flex-direction:row;flex-wrap:wrap;gap:6px;}.side nav a{padding:7px 12px;background:var(--fill);border-radius:100px;font-size:13px;}.side .side-foot{display:none;}.main{padding:8px 0 80px;}.arc-step{grid-template-columns:1fr;gap:8px;}}
+</style></head><body>
+<div class="layout">
+  <aside class="side">
+    <div class="mark">Kaywon DMD · Master Report</div>
+    <div class="site-title">주제 발굴<br>종합 리포트</div>
+    <p class="site-sub">최우수작 분석부터 91개 도출·데스크 리서치·경쟁 스캔까지, 4단계 여정을 하나로 묶고 최종 2개로 좁힌다</p>
+    <nav id="nav">
+      <a href="#top"><span class="n">00</span>최종 결론</a>
+      <a href="#journey"><span class="n">01</span>여정 — 4단계</a>
+      <a href="#principle"><span class="n">02</span>전략 원칙</a>
+      <a href="#matrix"><span class="n">03</span>결정 매트릭스</a>
+      <a href="#recommend"><span class="n">04</span>최종 추천 2</a>
+      <a href="#actions"><span class="n">05</span>다음 액션</a>
+      <a href="#appendix"><span class="n">06</span>부록 · 리포트</a>
+    </nav>
+    <div class="side-foot">2026.08.25 · 워크플로 4회<br>에이전트 234 · 웹검색 736회<br>91 도출 → 12 심화 → 5 검증 → 2 추천</div>
+  </aside>
+  <main class="main">
+    <section class="hero" id="top">
+      <span class="kicker">4단계 · 234 에이전트 · 최종 2개로 수렴</span>
+      <h1>91개에서<br><span class="accent">2개로</span></h1>
+      <p>계원예대 최우수작의 수상 공식을 잣대로 18개 도메인에서 91개를 도출하고, 12개를 완전 컨셉으로 심화하고, 상위 5개를 실제 웹 검색으로 데스크 리서치·경쟁 스캔했다. 모든 증거를 종합한 최종 결론은 두 개다.</p>
+      <div class="verdict">
+        <div class="vk">최종 추천</div>
+        <div class="vrow"><div class="vr-rank">본선 1순위</div><div><div class="vr-name">수위선 — 지하침수 결정궤적</div><div class="vr-desc">오송이라는 자명한 심각성 + 가장 강력한 데모(결정 지연 카운터) + 5종 디스플레이. 가장 안전한 최우수 후보.</div></div></div>
+        <div class="vrow"><div class="vr-rank">본선 2순위</div><div><div class="vr-name">피난선 — 이동약자 수직대피 지휘</div><div class="vr-desc">가장 희소·사회적으로 강렬 + 최근 검증 앵커(가양동) + 최저 법·윤리 리스크. 동기와 완전히 차별화되는 존엄 서사.</div></div></div>
+        <div class="vrow"><div class="vr-rank">유력 대안</div><div><div class="vr-name">귀항 — 재외국민 영사 지휘</div><div class="vr-desc">가장 독보적 도메인 + 세계지도 관제 등 화려한 디스플레이. 단 '발명'보다 '재조립' 성격이 가장 강함.</div></div></div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">91</div><div class="lbl">도출 고유 개념 (18렌즈·103생성)</div></div>
+        <div class="stat"><div class="num">12</div><div class="lbl">완전 컨셉 심화 (전원 A등급)</div></div>
+        <div class="stat"><div class="num">736</div><div class="lbl">실제 웹검색 (데스크+경쟁 스캔)</div></div>
+        <div class="stat"><div class="num">2</div><div class="lbl">최종 추천 (+1 대안)</div></div>
+      </div>
+    </section>
+    <div class="divider"></div>
+
+    <section id="journey">
+      <div class="eyebrow">어떻게 여기까지 왔나</div>
+      <h2 class="sec-title">4단계 여정</h2>
+      <p class="sec-lead">각 단계는 앞 단계의 결론을 <strong>적대적으로 검증</strong>하며 좁혀졌다. 개별 리포트는 아래 링크로 열 수 있다.</p>
+      <div class="arc">
+        <div class="arc-step"><div class="arc-n">01</div><div class="arc-b"><h4>최우수작 해부 — 왜 그들이 이겼나</h4><p>O.K(교정)·E.S.C.(응급) 2건을 동기 41팀과 대조해 수상 공식·4기준·함정 19를 도출. 이 리포트가 이후 모든 판정의 잣대.</p></div><div class="arc-link"><a href="졸업작품_최우수작_분석_사이트.html" target="_blank">열기</a></div></div>
+        <div class="arc-step"><div class="arc-n">02</div><div class="arc-b"><h4>신규 주제 도출 — 91개에서 12개로</h4><p>18개 도메인 렌즈로 103개 생성→병합 91→스크리닝→상위 20 웹검증→12개 완전 컨셉 심화. 에이전트 174개.</p></div><div class="arc-link"><a href="졸업작품_신규주제_도출_리포트.html" target="_blank">열기</a></div></div>
+        <div class="arc-step"><div class="arc-n">03</div><div class="arc-b"><h4>1–5 데스크 리서치 — 근거를 실증</h4><p>상위 5개의 법령·통계·앵커를 실제 웹검색으로 실증·교정(검색 435회). 전 주제 grade=solid, 풍하 앵커 오류 등 감점 지뢰 제거.</p></div><div class="arc-link"><a href="졸업작품_1-5_데스크리서치.html" target="_blank">열기</a></div></div>
+        <div class="arc-step"><div class="arc-n">04</div><div class="arc-b"><h4>1–5 경쟁·선행 스캔 — 진짜 없나</h4><p>조달·특허·벤더·해외 4채널로 "이 레이어를 파는 곳"을 검증(검색 301회). 그린필드 0, 공백확신 medium 4·low 1, 인터록 하향.</p></div><div class="arc-link"><a href="졸업작품_1-5_경쟁스캔_포지셔닝.html" target="_blank">열기</a></div></div>
+      </div>
+    </section>
+    <div class="divider"></div>
+
+    <section id="principle">
+      <div class="eyebrow">모든 단계를 관통한 하나의 발견</div>
+      <h2 class="sec-title">전략 원칙</h2>
+      <div class="formula">
+        <div class="t">The Principle</div>
+        <div class="bad">시장에 없는 서비스를 발명한다</div>
+        <div class="good">모든 공공문제는 정부가 이미 손대고 있다 →<br><span class="hl">파편화된 조각을 하나의 지휘 루프로 재조립하고 / 예측·데이터가 개인·현장에 못 닿는 라스트마일</span>을 정조준한다</div>
+      </div>
+      <div class="principle">
+        <div class="pr"><h4>없는 건 '기능'이 아니라 '결합'</h4><p>수위선=Veoci, 피난선=Otis특허, 귀항=美NTS처럼 부품은 다 존재한다. 없는 건 '이 도메인에서 하나로 꿴 레이어'다. O.K·E.S.C.도 발명이 아니라 통합으로 이겼다.</p></div>
+        <div class="pr"><h4>"세계 최초"는 금지어</h4><p>경쟁 스캔이 근접 경쟁을 실명으로 찾아냈다. 발표에선 그들을 먼저 인정하고, 차별점을 '재조립·도메인 결합·라스트마일'로 좁혀야 "이미 있잖아" 반박을 무력화한다.</p></div>
+        <div class="pr"><h4>감점지대를 강점으로</h4><p>최우수작도 1차 리서치·통계 출처·기존제도 차별성에서 감점당했다. 데스크 리서치로 이미 각주를 실증했으니, 인터뷰 2~3인만 실제로 하면 선배들이 못 가진 무기가 된다.</p></div>
+      </div>
+    </section>
+    <div class="divider"></div>
+
+    <section id="matrix">
+      <div class="eyebrow">5개 심화 주제 · 전 증거 종합</div>
+      <h2 class="sec-title">결정 매트릭스</h2>
+      <p class="sec-lead">데스크 리서치와 경쟁 스캔의 모든 판정을 한 표로. <strong>공백 확신 low인 인터록은 하향</strong>, 앵커 신선도 리스크가 남은 풍하는 보류, medium 3개가 본선·대안이다.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>주제</th><th>점수</th><th>공백확신</th><th>앵커</th><th>가장 근접한 경쟁</th><th>디스플레이</th><th>최종 처리</th></tr></thead>
+        <tbody><tr class="m-go"><td class="m-name">수위선<div class="m-desc">지하공간 침수 다기관 지휘·결정궤적</div></td><td class="m-c">8.62</td><td class="m-c"><span class="mg g-med">중간</span></td><td class="m-anc">검증(오송 14명)</td><td class="m-cmp">Veoci (미 EOC 상용)</td><td class="m-c">5종</td><td class="m-verd">★ 본선 1순위</td></tr><tr class="m-go"><td class="m-name">피난선<div class="m-desc">무장애 수직대피 임무 지휘</div></td><td class="m-c">8.52</td><td class="m-c"><span class="mg g-med">중간</span></td><td class="m-anc">검증(2026 가양동)</td><td class="m-cmp">Otis 특허 US10410310B2</td><td class="m-c">5종</td><td class="m-verd">★ 본선 2순위</td></tr><tr class="m-blue"><td class="m-name">귀항<div class="m-desc">재외국민 해외위기 영사 지휘</div></td><td class="m-c">8.52</td><td class="m-c"><span class="mg g-med">중간</span></td><td class="m-anc">검증(수단 프라미스)</td><td class="m-cmp">美 NTS+EU Exonaut+Everbridge</td><td class="m-c">5종</td><td class="m-verd">유력 대안</td></tr><tr class="m-warn"><td class="m-name">풍하<div class="m-desc">화학사고 15분 개인화 방향대피</div></td><td class="m-c">8.62</td><td class="m-c"><span class="mg g-med">중간</span></td><td class="m-anc">교정필요→해결</td><td class="m-cmp">2026 CARIS-내비 연계</td><td class="m-c">4종</td><td class="m-verd">보류 (신선도)</td></tr><tr class="m-stop"><td class="m-name">인터록레일<div class="m-desc">선로작업 열차접근 폐루프</div></td><td class="m-c">8.52</td><td class="m-c"><span class="mg g-low">낮음</span></td><td class="m-anc">검증(2025 청도)</td><td class="m-cmp">Metrom AURA (미 상용)</td><td class="m-c">5종</td><td class="m-verd">하향 (상용화)</td></tr></tbody>
+      </table></div>
+    </section>
+    <div class="divider"></div>
+
+    <section id="recommend">
+      <div class="eyebrow">여기서 시작하라</div>
+      <h2 class="sec-title">최종 추천 2</h2>
+      <p class="sec-lead">둘은 서로 다른 음역을 커버한다 — <strong>수위선</strong>은 '시스템 실패'의 냉정한 지휘, <strong>피난선</strong>은 '인간 존엄'의 따뜻한 지휘. 둘 다 방어 가능하고, 개발자 없이 시연 가능하며, 멀티디스플레이가 자연스럽다.</p>
+      
+    <div class="rec">
+      <div class="rec-head">
+        <span class="rank">1순위</span>
+        <div>
+          <h3 class="rec-title">수위선(水位線) — 지하공간 침수 다기관 지휘·결정궤적 시스템</h3>
+          <p class="rec-tag">차단바는 이미 내려간다. 우리는 그다음 3분, 누가 결정하고 누가 남았는가를 잇는다.</p>
+        </div>
+      </div>
+      <div class="rec-why"><div class="rk">왜 이걸 추천하나</div><p>다섯 주제 중 <b>심사위원이 심각성을 가장 자명하게 아는</b> 주제다. 오송 지하차도 참사(14명 사망)는 온 국민의 기억에 박혀 있고, 국무조정실 감찰(36명 수사의뢰)이 "감지는 있었고 결정이 끊겼다"는 우리 문제의식을 <b>정부 공식 문서로 뒷받침</b>한다. 근거 스택은 데스크 리서치 grade=solid로 조문번호·통계·URL까지 실증됐고, 5종 디스플레이가 자연스럽게 정당화된다. 경쟁 스캔에서 Veoci(미 EOC)가 결정 로깅을 이미 하지만, '침수 물리임계값(5cm)이 관할 다른 4기관에 결정을 강제하고 그 지연을 책임으로 타임스탬프하는' 결합은 확인 범위 내 미발견 — 재조립 서사로 방어 가능한 medium이다.</p></div>
+      <div class="two">
+        <div class="rc dark"><h4>결정적 시연 (Killer Demo)</h4><p>오송의 <b>07:04 → 07:58 → 08:09 붕괴</b> 실제 타임라인을 관제 월스크린에 재현하고, 지자체 승인권자 태블릿에 <b>'결정 지연 카운터'</b>가 0초부터 실제로 카운트되게 한다. '요청은 두 번 왔는데 아무도 지시하지 않은' 그 공백을 심사위원 눈앞에서 초 단위로 시각화 — 개발자 없이 상태머신+정적웹으로 구현 가능한, 이 프로젝트에서 가장 강력한 데모.</p></div>
+        <div class="rc blue"><h4>한 줄 방어</h4><p>"감지·차단 자동화(차단바 512곳)는 이미 완성됐다. 수위선은 그 위층 — 누가 언제 통제를 결정·미결정했는지의 <b>수평 결정궤적</b>만 설계한다."</p></div>
+      </div>
+      <div class="rk2">디스플레이 생태계 — 5종</div>
+      <div class="dp-grid"><div class="dp"><div class="dp-d">관제 대형 월스크린(홍수통제소/광역 재난안전상황실)</div><div class="dp-u">예보관·상황실 총괄</div></div><div class="dp"><div class="dp-d">지자체 담당자 데스크톱/태블릿(차단 승인 결재)</div><div class="dp-u">도로통제 승인권자</div></div><div class="dp"><div class="dp-d">지하차도 진입부 디지털 사이니지 + 자동 차단바 연동</div><div class="dp-u">진입 시민(운전자)</div></div><div class="dp"><div class="dp-d">현장 인력 스마트워치</div><div class="dp-u">소방·현장 통제인력</div></div><div class="dp"><div class="dp-d">시민 모바일(옵트인)</div><div class="dp-u">통과 시민·지하주차장/반지하 이용자</div></div></div>
+      <div class="rk2">심사 첫 화면 (검증된 앵커)</div>
+      <div class="anchor">2023년 7월 15일 충북 청주시 오송읍 궁평2지하차도 침수 참사(사망 14명·구조 9명·차량 17대). 미호강 임시제방 월류(07:50)·붕괴(08:09)로 강물이 유입(08:27)돼 08:40경 완전 침수. 이보다 앞선 07시04분(1차, &#x27;미호천교 범람우려 주민대피 필요&#x27;)·07시58분(2차, &#x27;궁평지하차도 통제 필요&#x27;) 두 차례 112 신고가 대피·통제를 요청했으나 어느 기관도 차단·통제를 지시하지 못했다 — 감지는 있었고 결정이 끊겼다.</div>
+      <div class="two">
+        <div class="rc go"><h4>남은 숙제 — 제작 초기에</h4><ul class="tick"><li>통계에 &#x27;2026년 국회 행안위 자료&#x27; 연도·출처 각주 병기(오송 당시로 오독 방지)</li><li>&#x27;신대방역&#x27;·&#x27;도시침수예보센터&#x27; 등 교정사항 본문 반영</li><li>지자체 도로통제 승인권자 SOP를 정보공개청구(open.go.kr)로 확보 + 홍수통제소/소방 인터뷰 2인</li></ul></div>
+        <div class="rc warn"><h4>경계할 위협</h4><ul class="warnl"><li>2026–2028 다부처 255억 &#x27;입체복합시설 복합재난 AI 플랫폼&#x27;이 상위에서 관제를 흡수할 가능성 → &#x27;관제&#x27;가 아닌 &#x27;결정 책임 궤적&#x27;으로 차별점 못박기</li><li>&#x27;소프트웨어가 관할 없이 결정을 강제 못한다&#x27;는 거버넌스 반박 → 도구 역할을 &#x27;강제&#x27;가 아닌 &#x27;미결정의 감사가능한 책임화&#x27;로 재정의</li></ul></div>
+      </div>
+    </div>
+      
+    <div class="rec">
+      <div class="rec-head">
+        <span class="rank">2순위</span>
+        <div>
+          <h3 class="rec-title">무장애 수직대피 관제 시스템 &#x27;피난선(避難線)&#x27;</h3>
+          <p class="rec-tag">매뉴얼은 있다. 지휘가 없었다 — 3층 휠체어 한 명에게 누가, 어떤 기구로, 언제 붙는지를 잇는 대피 지휘선.</p>
+        </div>
+      </div>
+      <div class="rec-why"><div class="rk">왜 이걸 추천하나</div><p>가장 <b>희소하고 사회적으로 강렬한</b> 주제다. 이동약자 재난 대피는 동기 디자인과 팀은 물론 대부분이 손대지 않는 영역이고, 검증된 앵커(2026.8.11 가양동 뇌병변 장애인 모자 사망)는 최근·구체적이며 감정적으로 잊히지 않는다. 법·윤리 리스크가 가장 낮고(옵트인·존엄 프레이밍), 5종 디스플레이가 정당화된다. 경쟁 스캔에서 Otis 특허(재실자 추적)와 119안심콜(사전등록)이 근접하지만, '화재경보 순간부터 개인×장애유형×기구×조력자 5원 임무배정·추적'은 미발견 — 인커번트를 인정한 뒤 좁혀진 공백이 명확하다.</p></div>
+      <div class="two">
+        <div class="rc dark"><h4>결정적 시연 (Killer Demo)</h4><p>화재경보가 울리는 순간, 방재실 화면에 <b>'3층 305호 휠체어 김OO에게 계단운반기 + 도우미 2명 지금 배정'</b> 임무 카드가 뜨고, 층별 도우미 모바일·당사자 웨어러블·복도 사이니지가 하나의 임무로 상호잠금 추적되는 흐름. '조력자 3명이 나눠 들라'는 매뉴얼(규범)이 <b>실행 지휘</b>로 바뀌는 순간을 시연.</p></div>
+        <div class="rc blue"><h4>한 줄 방어</h4><p>"119안심콜은 전화가 걸린 뒤 병원까지를 채운다. 피난선은 화재경보가 울린 순간부터 건물 안 피난안전구역까지를 채운다."</p></div>
+      </div>
+      <div class="rk2">디스플레이 생태계 — 5종</div>
+      <div class="dp-grid"><div class="dp"><div class="dp-d">소방 상황실 대형 관제월 (벽면 대형 디스플레이)</div><div class="dp-u">119 종합상황실 관제사</div></div><div class="dp"><div class="dp-d">방재실 데스크톱 (종합방재실 워크스테이션)</div><div class="dp-u">건물 방재실 관리자·자위소방대</div></div><div class="dp"><div class="dp-d">당사자 웨어러블 (손목 밴드)</div><div class="dp-u">이동약자 당사자</div></div><div class="dp"><div class="dp-d">층별 도우미 모바일 (스마트폰 임무카드)</div><div class="dp-u">사전 등록 층별 대피도우미</div></div><div class="dp"><div class="dp-d">복도 사이니지 (층별 디지털 안내판)</div><div class="dp-u">당사자·일반 재실자 공용</div></div></div>
+      <div class="rk2">심사 첫 화면 (검증된 앵커)</div>
+      <div class="anchor">심사 첫 화면 대표 앵커는 &#x27;2026년 8월 11일 오후 4시 55분경 서울 강서구 가양동 아파트 15층 화재 — 뇌병변 장애인 모친(61)과 아들(38)이 함께 사망, 두 사람은 화단에서 발견&#x27;으로 교체·전면화한다(컨셉 시점·프레임과 정확히 일치, 검증 완료). 이어 보조 앵커로 (a)2013.12.29 대구 달서구 상인동 비둘기아파트 화재로 지체장애 3급(편마비·와상) 이OO(55) 연기 질식 사망 — &#x27;가스폭발&#x27;이 아니라 화재·질식으로 사인 교정, (b)2023.3.6 수원 화서동 아파트 1층 화재로 60대 &#x27;일반&#x27; 주민이 15층 계단서 옥상 대피 중 연기흡입 사망 — 장애인 사례가 아니라 &#x27;계단 수직대피의 구조적 위험&#x27; 근거로만 배치. 동일본대지진 통계는 뉴스 사건이 아니라 통계 근거로 분리하고 &#x27;전체 사망률의 약 2배(지역별 편차, 내각부 障害者白書 2012)&#x27;로 표기하되 컨셉의 &#x27;1.9%/1.1%&#x27; 단정 인용은 피한다.</div>
+      <div class="two">
+        <div class="rc go"><h4>남은 숙제 — 제작 초기에</h4><ul class="tick"><li>동일본대지진 통계(1.9%/1.1%)를 障害者白書 인용으로 단정 금지 — 内閣府 백서 컬럼값·NHK 조사로 출처 분리</li><li>국내 NFDS 화재통계로 &#x27;장애인 대피 취약&#x27; 국내 맥락 보강(현재 일본 데이터 의존)</li><li>종합방재실 관리자·소방 관제사·이동약자 당사자 인터뷰 2~3인 실제 섭외(9월 내)</li></ul></div>
+        <div class="rc warn"><h4>경계할 위협</h4><ul class="warnl"><li>Otis 특허(US10410310B2)가 재실자 추적·휠체어 경로까지 근접 → 차별점을 &#x27;그룹 경로&#x27;가 아닌 &#x27;개인별 조력자·기구 임무배정 폐루프&#x27;로 못박기</li><li>실내측위(비콘/UWB) 정확도·사전등록률이 취약 → 더미데이터 설계와 옵트인 등록 서사로 방어</li></ul></div>
+      </div>
+    </div>
+      <div class="wild">
+        <div class="wk">유력 대안 · Wildcard</div>
+        <h3>귀항 — 재외국민 해외위기 영사 지휘</h3>
+        <p>다섯 중 <b>도메인이 가장 독보적</b>이고, <b>세계지도 관제 월스크린·러기드 태블릿·공관 키오스크</b> 등 디스플레이가 가장 화려하다. 다만 경쟁 스캔에서 美 NTS·EU Exonaut·Everbridge가 조각별로 실재해 성격이 '발명'보다 <b>'한국 4대 인프라의 재조립'</b>에 가장 가깝고, 앵커(수단 프라미스 작전)가 <b>성공 사례</b>라 '시스템이 실패했다' 서사가 약간 약하다. 화려함·독창성을 최우선한다면 수위선 대신 이걸 1순위로 올려도 좋다.</p>
+      </div>
+    </section>
+    <div class="divider"></div>
+
+    <section id="actions">
+      <div class="eyebrow">확정 즉시</div>
+      <h2 class="sec-title">다음 액션</h2>
+      <div class="act">
+        <div class="act-row"><div class="act-w">즉시 (1주)</div><div class="act-b"><b>주제 1개 확정</b> — 수위선 또는 피난선. 팀 5인 디자인 생산력·관심도로 최종 택1(또는 두 팀 병행 검토).</div></div>
+        <div class="act-row"><div class="act-w">리서치 (2–4주)</div><div class="act-b"><b>인터뷰 2~3인 실제 섭외</b>(정보공개청구·학회·지도교수 소개장) + 데스크 리서치의 MUST FIX 각주를 기획 문서에 반영. 이게 최대 감점지대를 강점으로 뒤집는 핵심.</div></div>
+        <div class="act-row"><div class="act-w">컨셉 (3주)</div><div class="act-b"><b>이해관계자→컬러 시맨틱→IA→디스플레이 매핑</b> 확정. 수위선의 '임계 수위선', 피난선의 '임무 카드' 같은 브랜드-IA 장치를 디자인 토큰으로.</div></div>
+        <div class="act-row"><div class="act-w">시연 (병행)</div><div class="act-b"><b>Killer Demo 우선 제작</b> — 수위선=결정 지연 카운터, 피난선=임무 배정·추적. 정적웹+상태머신으로 라이브 데모 1개 + 녹화 폴백.</div></div>
+      </div>
+      <div class="callout">
+        <b>한 문장 요약:</b> 주제는 이미 웹검증으로 단단하다. 이제 승부는 <b>수위선(또는 피난선) 하나를 골라, 인터뷰 1건을 실제로 하고, "끊긴 걸 잇는다"는 재조립 축을 끝까지 지키며 Killer Demo를 만드는 실행</b>에서 갈린다.
+      </div>
+    </section>
+    <div class="divider"></div>
+
+    <section id="appendix">
+      <div class="eyebrow">구성 리포트와 방법</div>
+      <h2 class="sec-title">부록</h2>
+      <div class="appx-grid">
+        <div class="appx"><h4>구성 리포트 5종</h4><ul>
+          <li><b>최우수작 해부</b> — 졸업작품_최우수작_분석_사이트.html</li>
+          <li><b>신규 주제 도출(12선)</b> — 졸업작품_신규주제_도출_리포트.html</li>
+          <li><b>1–5 데스크 리서치</b> — 졸업작품_1-5_데스크리서치.html</li>
+          <li><b>1–5 경쟁·선행 스캔</b> — 졸업작품_1-5_경쟁스캔_포지셔닝.html</li>
+          <li><b>마스터(현재 문서)</b> — 졸업작품_마스터_종합리포트.html</li>
+        </ul></div>
+        <div class="appx"><h4>생성 방법 · 규모</h4><ul>
+          <li>워크플로 4회 · 에이전트 총 234 · 웹 툴 호출 736회</li>
+          <li>도출 91 → 심화 12(A등급) → 검증 5(grade=solid) → 추천 2(+대안 1)</li>
+          <li>판정 잣대: 최우수작 4기준·수상 공식·함정 19</li>
+          <li>공백확신: high 0 · medium 4 · low 1(부재 증명 아닌 확인 범위 내 미발견)</li>
+        </ul></div>
+      </div>
+      <p class="disclaimer">모든 근거는 2026.08.25 웹 검색 기준이며, 데스크 리서치의 '미확정'·잔여 리스크 항목과 경쟁 스캔의 '미발견'은 최종 채택 전 원문 대조가 필요하다. 등급(A)·공백확신은 자동 검증 판정으로 실제 심사 결과를 보장하지 않는다. 이 마스터 문서는 4개 구성 리포트의 요약·종합이며, 각 주제의 완전한 근거·각주·경쟁 실명은 해당 리포트에서 확인할 것.</p>
+    </section>
+  </main>
+</div>
+<script>
+(function(){var links=document.querySelectorAll('#nav a');var secs=[];
+links.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s)secs.push({a:a,s:s});});
+function o(){var p=window.scrollY+window.innerHeight*0.3,c=secs[0];secs.forEach(function(x){if(x.s.offsetTop<=p)c=x;});links.forEach(function(a){a.classList.remove('active');});if(c)c.a.classList.add('active');}
+window.addEventListener('scroll',o,{passive:true});o();})();
+</script>
+</body></html>

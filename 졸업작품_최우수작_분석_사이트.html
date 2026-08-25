@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>최우수작 해부 — 계원예대 디지털미디어디자인 졸업작품 분석 리포트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root {
+  --ink: #1d1d1f;
+  --ink-2: #494949;
+  --gray: #86868b;
+  --gray-2: #a1a1a6;
+  --fill: #f5f5f7;
+  --fill-2: #e8e8ed;
+  --line: #d2d2d7;
+  --blue: #0071e3;
+  --blue-deep: #0040dd;
+  --green: #248a3d;
+  --orange: #c93400;
+  --bg: #ffffff;
+  --radius: 20px;
+  --radius-s: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "SF Pro KR", "SF Pro Display", "Apple SD Gothic Neo", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.6;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 { line-height: 1.3; letter-spacing: -0.02em; font-weight: 700; }
+
+em, i { font-style: normal; }
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- 12-column layout, header on the left ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.side {
+  grid-column: 1 / span 3;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 24px 40px 0;
+  border-right: 1px solid var(--fill-2);
+}
+
+.main {
+  grid-column: 4 / span 9;
+  padding: 48px 0 120px 48px;
+  min-width: 0;
+}
+
+/* ---------- left header ---------- */
+.side .mark {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+}
+
+.side .site-title {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.side .site-sub {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.side nav { display: flex; flex-direction: column; gap: 2px; }
+
+.side nav a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-2);
+  transition: background .2s, color .2s;
+}
+.side nav a .n {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gray-2);
+  font-variant-numeric: tabular-nums;
+}
+.side nav a:hover { background: var(--fill); text-decoration: none; }
+.side nav a.active { background: var(--ink); color: #fff; }
+.side nav a.active .n { color: rgba(255,255,255,.55); }
+
+.side .side-foot {
+  margin-top: auto;
+  font-size: 12px;
+  color: var(--gray-2);
+  line-height: 1.6;
+}
+
+/* ---------- common section ---------- */
+section { padding: 72px 0 8px; }
+section:first-of-type { padding-top: 8px; }
+
+.eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.sec-title {
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.sec-lead {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+.sec-lead strong { color: var(--ink); }
+
+.divider { height: 1px; background: var(--fill-2); margin: 72px 0 0; }
+
+/* ---------- hero ---------- */
+.hero { padding: 24px 0 0; }
+.hero .kicker {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--fill);
+  color: var(--ink-2);
+  padding: 7px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(40px, 4.6vw, 64px);
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+.hero h1 .accent { color: var(--blue); }
+.hero p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 720px;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+.stat {
+  background: var(--fill);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.stat .num { font-size: 34px; font-weight: 800; line-height: 1.3; }
+.stat .lbl { font-size: 13px; color: var(--gray); margin-top: 4px; line-height: 1.5; }
+
+.method-note {
+  margin-top: 40px;
+  background: var(--fill);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+.method-note b { color: var(--ink); }
+.method-note .tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+/* ---------- work analysis ---------- */
+.work-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.work-head .meta { font-size: 15px; color: var(--gray); line-height: 1.6; }
+
+.score-badge {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 16px;
+  padding: 14px 22px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.score-badge .s { font-size: 30px; font-weight: 800; line-height: 1.3; }
+.score-badge .t { font-size: 11px; color: rgba(255,255,255,.6); }
+
+.what {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  background: var(--fill);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 20px 0 32px;
+}
+.what b { color: var(--ink); }
+
+.lens-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.lens {
+  border: 1px solid var(--fill-2);
+  border-radius: var(--radius);
+  padding: 26px;
+}
+.lens-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.lens h4 { font-size: 18px; line-height: 1.3; }
+.lens .lens-score {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blue);
+  font-variant-numeric: tabular-nums;
+}
+.lens .bar {
+  height: 5px;
+  border-radius: 3px;
+  background: var(--fill-2);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.lens .bar span { display: block; height: 100%; border-radius: 3px; background: var(--blue); }
+.lens ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.lens li {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  padding-left: 18px;
+  position: relative;
+}
+.lens li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 10px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gray-2);
+}
+.lens li b { color: var(--ink); font-weight: 600; }
+
+.penalty {
+  margin-top: 16px;
+  background: var(--fill);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+}
+.penalty h4 { font-size: 16px; margin-bottom: 10px; color: var(--orange); }
+.penalty p { font-size: 14.5px; color: var(--ink-2); line-height: 1.6; }
+
+.work-block + .work-block { margin-top: 64px; }
+
+/* ---------- patterns ---------- */
+.pattern-list { display: flex; flex-direction: column; gap: 14px; }
+.pattern {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 24px;
+  background: var(--fill);
+  border-radius: var(--radius);
+  padding: 30px 32px;
+}
+.pattern .no {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--gray-2);
+  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+}
+.pattern h4 { font-size: 20px; margin-bottom: 10px; }
+.pattern p { font-size: 15px; color: var(--ink-2); line-height: 1.6; }
+.pattern p + p { margin-top: 8px; }
+.pattern .ev { font-size: 14px; }
+.pattern .ev b { font-weight: 700; color: var(--ink); }
+.pattern .do {
+  margin-top: 14px;
+  font-size: 14.5px;
+  background: #fff;
+  border-radius: var(--radius-s);
+  padding: 14px 18px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.pattern .do .k { font-weight: 700; color: var(--green); }
+
+.formula {
+  margin: 0 0 36px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 36px 40px;
+}
+.formula .t { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
+.formula p { font-size: 22px; font-weight: 700; line-height: 1.5; }
+.formula p .step { color: #6bb6ff; }
+
+/* ---------- pitfalls ---------- */
+.pitfall-group { margin-bottom: 40px; }
+.pitfall-group > h3 {
+  font-size: 22px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.pitfall-group > h3 .g {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--ink);
+  border-radius: 8px;
+  padding: 3px 9px;
+}
+.pitfall-group > .g-sub { font-size: 14px; color: var(--gray); margin-bottom: 18px; }
+.pitfall-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.pitfall {
+  border: 1px solid var(--fill-2);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+.pitfall .who {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--gray);
+  background: var(--fill);
+  padding: 3px 9px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.pitfall h4 { font-size: 16.5px; margin-bottom: 8px; }
+.pitfall p { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+.pitfall p .fix { font-weight: 700; color: var(--green); }
+
+.pitfall-summary {
+  background: var(--fill);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.pitfall-summary b { color: var(--blue-deep); }
+
+/* ---------- strategy ---------- */
+.strategy-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.si-card { border-radius: var(--radius); padding: 28px 30px; }
+.si-card.weak { background: var(--fill); }
+.si-card.strong { background: var(--ink); color: #fff; }
+.si-card .t { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
+.si-card.weak .t { color: var(--orange); }
+.si-card.strong .t { color: #6bb6ff; }
+.si-card p { font-size: 15.5px; line-height: 1.6; }
+.si-card.weak p { color: var(--ink-2); }
+.si-card.strong p { color: rgba(255,255,255,.85); }
+.si-card p b { font-weight: 700; }
+.si-card.weak p b { color: var(--ink); }
+.si-card.strong p b { color: #fff; }
+
+.sub-block { margin-bottom: 56px; }
+.sub-block > h3 {
+  font-size: 26px;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.sub-block > h3 .step-no {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+}
+.sub-block > .sub-lead { font-size: 16px; color: var(--ink-2); margin-bottom: 24px; max-width: 720px; line-height: 1.6; }
+
+.criteria { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }
+.criterion {
+  background: var(--fill);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+.criterion .cn { font-size: 13px; font-weight: 800; color: var(--blue); margin-bottom: 6px; }
+.criterion p { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+.criterion p b { color: var(--ink); }
+
+.topics { display: flex; flex-direction: column; gap: 12px; }
+.topic {
+  border: 1px solid var(--fill-2);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 18px;
+}
+.topic .tn { font-size: 22px; font-weight: 800; color: var(--gray-2); line-height: 1.3; }
+.topic h4 { font-size: 17.5px; margin-bottom: 6px; }
+.topic p { font-size: 14.5px; color: var(--ink-2); line-height: 1.6; }
+.topic p b { color: var(--ink); font-weight: 600; }
+
+.callout {
+  margin-top: 20px;
+  background: #e8f2ff;
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+.callout b { color: var(--blue-deep); }
+
+.build-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.build-col { border-radius: var(--radius); padding: 26px 28px; }
+.build-col.go { background: var(--fill); }
+.build-col.stop { border: 1px solid var(--fill-2); }
+.build-col h4 { font-size: 17px; margin-bottom: 16px; }
+.build-col.go h4 { color: var(--green); }
+.build-col.stop h4 { color: var(--orange); }
+.build-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.build-col li { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); padding-left: 18px; position: relative; }
+.build-col li::before { content: ""; position: absolute; left: 2px; top: 10px; width: 5px; height: 5px; border-radius: 50%; background: var(--gray-2); }
+.build-col li b { color: var(--ink); font-weight: 600; }
+
+.gate {
+  margin-top: 16px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 26px 30px;
+}
+.gate h4 { font-size: 16px; margin-bottom: 14px; color: #6bb6ff; }
+.gate ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+.gate li { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.85); padding-left: 22px; position: relative; }
+.gate li::before { content: "✓"; position: absolute; left: 0; top: 0; font-weight: 700; color: #6bb6ff; }
+
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+thead th {
+  text-align: left;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: 0 14px 10px;
+  border-bottom: 1px solid var(--line);
+}
+tbody td {
+  padding: 14px;
+  border-bottom: 1px solid var(--fill-2);
+  vertical-align: top;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+tbody td:first-child { font-weight: 700; color: var(--ink); white-space: nowrap; }
+tbody tr:last-child td { border-bottom: none; }
+.table-wrap { border: 1px solid var(--fill-2); border-radius: var(--radius); padding: 20px 10px 10px; overflow-x: auto; }
+
+.check-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.check-group {
+  border: 1px solid var(--fill-2);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+}
+.check-group h4 { font-size: 16.5px; margin-bottom: 14px; }
+.check-group ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.check-group li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  padding-left: 28px;
+  position: relative;
+}
+.check-group li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 4px;
+  width: 15px; height: 15px;
+  border: 1.5px solid var(--gray-2);
+  border-radius: 5px;
+}
+.check-group li b { color: var(--ink); font-weight: 600; }
+
+.timeline-note {
+  margin-top: 20px;
+  background: var(--fill);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+.timeline-note b { color: var(--ink); }
+
+/* ---------- appendix ---------- */
+.appx-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.appx {
+  background: var(--fill);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+}
+.appx h4 { font-size: 15px; margin-bottom: 12px; }
+.appx ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.appx li { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); word-break: break-all; }
+.appx li b { color: var(--ink); font-weight: 600; }
+
+.disclaimer {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.6;
+  border-top: 1px solid var(--fill-2);
+  padding-top: 20px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1100px) {
+  .lens-grid, .pitfall-cards, .criteria, .build-cols, .check-groups, .strategy-intro, .appx-grid { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .layout { padding: 0 20px; display: block; }
+  .side {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--fill-2);
+    padding: 32px 0 24px;
+  }
+  .side nav { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+  .side nav a { padding: 7px 12px; background: var(--fill); border-radius: 100px; font-size: 13px; }
+  .side .side-foot { display: none; }
+  .main { padding: 8px 0 80px; }
+  .pattern { grid-template-columns: 1fr; gap: 8px; }
+  .gate ul { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ==================== LEFT HEADER ==================== -->
+  <aside class="side">
+    <div class="mark">Kaywon DMD · Degree Show Study</div>
+    <div class="site-title">최우수작<br>해부 리포트</div>
+    <p class="site-sub">계원예대 디지털미디어디자인과 최우수 졸업작품 2건 · 동기 41팀 전수 대조 분석</p>
+    <nav id="nav">
+      <a href="#overview"><span class="n">01</span>개요</a>
+      <a href="#work-ok"><span class="n">02</span>O.K 분석</a>
+      <a href="#work-esc"><span class="n">03</span>E.S.C. 분석</a>
+      <a href="#patterns"><span class="n">04</span>공통 성공 패턴 7</a>
+      <a href="#pitfalls"><span class="n">05</span>피해야 할 함정 19</a>
+      <a href="#strategy"><span class="n">06</span>우리 팀 전략</a>
+      <a href="#appendix"><span class="n">07</span>부록</a>
+    </nav>
+    <div class="side-foot">
+      2026.07.16 작성<br>
+      기획 2 · 디자인 5 팀 대상<br>
+      수상 요인 후보 40건 중 24건 검증 채택
+    </div>
+  </aside>
+
+  <!-- ==================== MAIN ==================== -->
+  <main class="main">
+
+    <!-- ========== 01 개요 ========== -->
+    <section class="hero" id="overview">
+      <span class="kicker">4개 사이트 · 41팀 전수 데이터 · 검증된 요인만 수록</span>
+      <h1>왜 이 두 작품이<br><span class="accent">최우수작</span>이 되었나</h1>
+      <p>O.K(2025, 차세대 교정 업무 시스템)와 E.S.C.(2024, 응급 이송 통합 서비스)를 동기 출품작 전체와 대조해 4개 렌즈로 교차 심사했다. 수상 요인 후보 40개를 원문 대조로 검증해 24개만 채택했고, 이 리포트는 검증을 통과한 근거만 사용한다.</p>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="num">8.75</div><div class="lbl">O.K 종합 점수 / 10<br>팀 콩밥 · 2025 PIVOT-TIME</div></div>
+        <div class="stat"><div class="num">8.25</div><div class="lbl">E.S.C. 종합 점수 / 10<br>팀 삐용삐용 · 2024 BE</div></div>
+        <div class="stat"><div class="num">24 / 40</div><div class="lbl">검증 통과한 수상 요인<br>16건은 근거 부족으로 기각</div></div>
+        <div class="stat"><div class="num">41팀</div><div class="lbl">대조한 동기 출품작<br>2024년 21팀 + 2025년 20팀</div></div>
+      </div>
+
+      <div class="method-note">
+        <span class="tag">분석 방법</span>
+        각 사이트의 JS 번들·CSS·이미지·영상 에셋을 직접 다운로드해 문자열 마이닝과 시각 확인을 수행하고, 동기 출품작 마이크로사이트 8~9곳을 샘플링해 <b>"일반 출품작 기준선"</b>을 세운 뒤 <b>기획·문제정의 / 시각디자인·브랜딩 / UX·서비스 설계 / 전달·프레젠테이션</b> 4개 렌즈로 교차 심사했다. GitHub 커밋 기록으로 제작 타임라인(O.K 약 7~8주 83+커밋, E.S.C. 웹 약 3주 29커밋)도 확인했다. 단, 전시 사이트·DB 어디에도 수상 표기는 없어 "최우수작" 지위는 외부 전언 기반이며, 본 리포트의 비교 우위 판단은 전수 대조 결과에 근거한다.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========== 02 O.K ========== -->
+    <section id="work-ok">
+      <div class="eyebrow">작품 분석 A</div>
+      <h2 class="sec-title">O.K — 차세대 교정 업무 시스템</h2>
+
+      <div class="work-block">
+        <div class="work-head">
+          <div class="meta">팀 콩밥 · 2025 PIVOT-TIME 15번 · 디자이너 4 + 프로그래머 2 (6인) · 웹 빌드 약 7~8주</div>
+          <div class="score-badge"><div class="s">8.75</div><div class="t">종합 / 10</div></div>
+        </div>
+
+        <div class="what"><b>무엇을 만들었나.</b> 교도관을 위한 스마트 통합 업무 시스템. 태블릿(통합 업무) + 스마트워치(긴급 대응) + 키오스크(공용 대시보드) 3개 디바이스 생태계에 하이브리드 AI 어시스턴트 "OK-E"를 얹은 구조.</div>
+
+        <div class="lens-grid">
+          <div class="lens">
+            <div class="lens-top"><h4>기획 · 문제정의</h4><span class="lens-score">8.5</span></div>
+            <div class="bar"><span style="width:85%"></span></div>
+            <ul>
+              <li><b>법령→정책→통계 3중 근거 스택.</b> 「교도관직무규칙」 제34조 → 1차 교정기본계획(2021~2025)의 스마트 교정·NFC 시범사업 → 공공부문 AI 도입률 95% 목표. 동기들이 설문 90명, 뉴스 인용 3건 수준일 때 솔루션을 "정부 로드맵의 다음 단계"로 자리매김.</li>
+              <li><b>주제 블루오션 선점.</b> 20팀 중 유일한 교정행정 주제. 접근이 어려운 폐쇄 조직을 택해 희소성 확보.</li>
+              <li><b>Device 챕터를 문제와 솔루션 사이에 배치</b>해 "문제 정리 → 그래서 앱" 비약을 차단. 기기별 채택 근거를 각각 정당화.</li>
+              <li><b>공공 프로젝트의 현실 감각.</b> KRDS 준거, 푸터 면책 고지, AI 활용 고지 — 학생 컨셉이 아닌 "납품 가능한 제안서"의 태도.</li>
+            </ul>
+          </div>
+          <div class="lens">
+            <div class="lens-top"><h4>시각디자인 · 브랜딩</h4><span class="lens-score">9.0</span></div>
+            <div class="bar"><span style="width:90%"></span></div>
+            <ul>
+              <li><b>조형 근거를 주제에서 도출.</b> 범정부 디자인 시스템 KRDS 확장형 적용을 명시, 국문 Pretendard GOV + 영문 Gotham, 자간 -5% / 행간 150%까지 수치 고정. 다크모드를 "선명한 모드"로 재명명해 가시성 관점으로 리프레이밍.</li>
+              <li><b>위험도 컬러 시맨틱.</b> 블루 #0015FF=경미/확인, 오렌지 #FF4D00=긴급 규칙이 워치 알림·키오스크 배지·UI 레전드까지 3개 디바이스를 동일하게 관통.</li>
+              <li><b>스타일 키워드 3종(홀로그래픽·글래스모피즘·네오퓨처리즘)을 실물로 증명.</b> 투명 스크린 키오스크, 파티클 락스크린, 3D 아이소메트릭 안양교도소 맵으로 키워드→구현 추적 가능.</li>
+              <li><b>더미 데이터까지 통제한 세계관.</b> 페르소나 '김현겸 교도관'이 락스크린("김현겸 교도관님(잠금)")과 인수인계 모달 칩("인계자: 김현겸")에 재등장.</li>
+            </ul>
+          </div>
+          <div class="lens">
+            <div class="lens-top"><h4>UX · 서비스 설계</h4><span class="lens-score">8.5</span></div>
+            <div class="bar"><span style="width:85%"></span></div>
+            <ul>
+              <li><b>'앱'이 아니라 '시스템'을 설계.</b> 상황 × 기기 특성 매트릭스로 기능을 배분하고 핵심/플러스/부 위계까지 명시.</li>
+              <li><b>실동작 AI 챗봇.</b> "OK-E를 체험해보세요" 섹션이 railway 백엔드를 실제 호출 — 20팀 중 유일하게 심사위원이 직접 질문할 수 있는 동작하는 프로토타입.</li>
+              <li><b>엣지케이스의 UI 환원.</b> SOS 입력을 "5대 교정 사고 유형" 선택으로 분류 체계화, "양손이 자유롭지 않은 상황"을 무전 인터랙션 근거로 명시, AI 인력 자동 재배치 에스컬레이션 정의.</li>
+              <li><b>스펙 문서 수준의 기능 밀도.</b> 수용자 프로파일 하나를 영상 7개로 분해, 인수인계의 데이터 연동 사양(AI 감시 로그·CCTV·NFC)까지 명시.</li>
+            </ul>
+          </div>
+          <div class="lens">
+            <div class="lens-top"><h4>전달 · 프레젠테이션</h4><span class="lens-score">9.0</span></div>
+            <div class="bar"><span style="width:90%"></span></div>
+            <ul>
+              <li><b>6챕터 매거진형 구조.</b> "01 시스템 전략"~"06 OK-E" 넘버링 카드 + 8개 라우트 — 동기 대부분이 단일 세로 스크롤일 때 심사위원이 원하는 지점으로 즉시 점프 가능.</li>
+              <li><b>영상 29개 자동재생.</b> webm 26 + mp4 3의 실동작 UI 영상을 전 페이지 자동재생 배치 — '읽는 설명'을 '보는 시연'으로 대체.</li>
+              <li><b>내러티브 일관성.</b> 근거 카드 3장 → 페르소나 4인 호버 페인포인트 → 그 페르소나가 락스크린 UI에 재등장 → 비전 카피로 마무리.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="penalty">
+          <h4>감점 요인</h4>
+          <p>1차 리서치(현장 인터뷰) 부재 · 통계 출처 미표기 · 감시/인권·프라이버시 쟁점 완전 침묵 · NFC 실패/네트워크 단절/AI 오탐 등 실패 모드 미정의 · 페르소나 4인 대비 태스크 플로우 커버리지 불균형 · MVP/확장 우선순위 부재 · 에셋 위생 실패(fuckdong.png 파일명, 번들 평문 시스템 프롬프트) · 라이브 챗봇 폴백 없음 · 629KB 단일 번들 + 영상 29개 자동재생 성능 리스크 · 로고 설명이 감성 서술 수준.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========== 03 E.S.C. ========== -->
+    <section id="work-esc">
+      <div class="eyebrow">작품 분석 B</div>
+      <h2 class="sec-title">E.S.C. — Emergency System Center</h2>
+
+      <div class="work-block">
+        <div class="work-head">
+          <div class="meta">팀 삐용삐용 · 2024 BE 4번 · 디자이너 3 + 개발자 3 (6인) · 웹은 개발자 1인이 약 3주에 완성 (정적 HTML + jQuery + Three.js)</div>
+          <div class="score-badge"><div class="s">8.25</div><div class="t">종합 / 10</div></div>
+        </div>
+
+        <div class="what"><b>무엇을 만들었나.</b> '응급실 뺑뺑이' 문제를 겨냥해 구급대원·병원·시민 3주체를 하나로 연결하는 통합 응급 서비스. 구급대원 앱(체크리스트·지도) + 병원용(알림·AI 병원정보) + 시민 앱(신고 매뉴얼) + 차량 거치 iPad 내비게이션.</div>
+
+        <div class="lens-grid">
+          <div class="lens">
+            <div class="lens-top"><h4>기획 · 문제정의</h4><span class="lens-score">7.5</span></div>
+            <div class="bar"><span style="width:75%"></span></div>
+            <ul>
+              <li><b>사회적 합의가 끝난 문제의 선점.</b> 도입부가 "구급대원들의 업무 증가, 원인은?" 질문과 키워드 칩 '응급실 뺑뺑이'로 시작 — 심사위원이 문제의 존재를 별도로 설득받을 필요가 없는 주제. 같은 해 21팀 다수가 라이프스타일 주제였다.</li>
+              <li><b>3주체 이해관계자 정의가 서비스 아키텍처 그 자체.</b> 페르소나 3인(구급대원=골목 진입·인계 대기 / 병원=구두 소통 / 시민=위치 불안)이 그대로 3색 컬러 시스템과 앱 3종 구조로 이어진다.</li>
+            </ul>
+          </div>
+          <div class="lens">
+            <div class="lens-top"><h4>시각디자인 · 브랜딩</h4><span class="lens-score">8.5</span></div>
+            <div class="bar"><span style="width:85%"></span></div>
+            <ul>
+              <li><b>컬러가 정보 아키텍처로 작동.</b> Neon Green #E0FD48(구급대원) / Red Cross #FF3E3E(병원) / Safe Blue #0177FF(시민) + 다크 베이스 — "각 주체를 명확히 구분하기 위해 세 가지 컬러를 사용"을 명문화. 색만 따라가도 "지금 누구의 화면인가"가 읽힌다.</li>
+              <li><b>로고의 브랜드 자산화.</b> '달리는 사람' 픽토그램을 그리드 드로잉 애니메이션 → Three.js 3D 로고 3종 → 스플래시 3색 변주로 전개 — 아이덴티티의 설계 과정 자체를 시연.</li>
+              <li><b>전시장 레벨 검증.</b> 코랄 핑크·청록·핫핑크가 지배적인 썸네일 그리드에서 21팀 중 가장 강한 다크+네온 대비로 물리적 차별화. 컨셉 문장("긴박한 상황에서도 가시성을 잃지 않는 스타일")이 썸네일까지 이탈 없음.</li>
+            </ul>
+          </div>
+          <div class="lens">
+            <div class="lens-top"><h4>UX · 서비스 설계</h4><span class="lens-score">8.5</span></div>
+            <div class="bar"><span style="width:85%"></span></div>
+            <ul>
+              <li><b>멀티스테이크홀더 정보구조.</b> 사용자별 분리 설계 + 차량 iPad 내비게이션. 동기 대부분이 단일 사용자군 앱 1개를 제안한 것과 스코프가 다르다.</li>
+              <li><b>엣지케이스의 화면 환원.</b> '좁은 골목길' 페인포인트가 경로 옵션 3종(최소시간 15분 / 골목없는 경로 21분 / 최적 25분)으로, 이동 신고자 문제가 "최초 신고 지점으로부터 547m + 경로 재안내"로, 의식 없는 환자가 체크리스트 분기로 번역됨.</li>
+            </ul>
+          </div>
+          <div class="lens">
+            <div class="lens-top"><h4>전달 · 프레젠테이션</h4><span class="lens-score">8.5</span></div>
+            <div class="bar"><span style="width:85%"></span></div>
+            <ul>
+              <li><b>3색이 그 자체로 내비게이션 역할</b>을 하는 원페이지 내러티브. 화면 녹화 영상 15개 + 어노테이션.</li>
+              <li><b>크로스디바이스 일치 시나리오 데이터.</b> 2024.10.04 기준 동일 인물(홍길동/김철수/이서현)·동일 시각의 가상 데이터가 화면을 관통 — '실제로 돌아가는 서비스'라는 인상.</li>
+              <li><b>포커스 인터랙션과 출처 투명성.</b> 호버한 카드만 남기고 블러 처리, SOURCE 버튼으로 에셋 출처 공개.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="penalty">
+          <h4>감점 요인</h4>
+          <p>정량·법령 근거 전무 · 기존 제도(중앙응급의료센터 종합상황판)와의 차별성 논증 생략 · 혈액형/복용약/임신여부 등 민감 개인정보의 법적 근거 무검토 · 병원 매칭 거부 시 재매칭 플로우 부재 · 문제정의 2개 vs 솔루션 3개 비대칭 · 문제정의 문단의 오탈자("일일히", "연략해야한다") · 최종 시연 영상을 최하단 클릭 재생으로 배치 · 히어로 카피("구급대원을 위한 앱")와 본문(3주체 플랫폼)의 불일치 · 학교·학과·전시 맥락 언급 0건.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========== 04 패턴 ========== -->
+    <section id="patterns">
+      <div class="eyebrow">종합 심사 결과</div>
+      <h2 class="sec-title">두 작품을 관통하는<br>공통 성공 패턴 7</h2>
+      <p class="sec-lead">검증을 통과한 수상 요인 24개를 관통하는 하나의 공식이 있다.</p>
+
+      <div class="formula">
+        <div class="t">The Formula</div>
+        <p><span class="step">희소한 공공 문제 선점</span> → <span class="step">이해관계자 정의가 컬러·IA·UI 데이터까지 관통하는 시스템 설계</span> → <span class="step">조형 결정마다 논증 부착</span> → <span class="step">동작하는 증거로 시연</span></p>
+      </div>
+
+      <div class="pattern-list">
+        <div class="pattern">
+          <div class="no">01</div>
+          <div>
+            <h4>사회적 합의가 끝난 공공 문제를 선점한다</h4>
+            <p class="ev"><b>O.K</b>는 20팀 중 유일한 교정행정, <b>E.S.C.</b>는 21팀 중 유일한 생명 직결 공공 시스템 위기. 동기 다수가 라이프스타일·소비자 앱일 때 "심사위원이 심각성을 이미 아는" 문제를 골라 주제 선정 단계에서 체급을 갈랐다.</p>
+            <div class="do"><span class="k">실행 지침</span> — 주제 확정 전 동기들의 주제 분포를 먼저 조사하고, 지금 뉴스에 나오는 공공·시스템 문제 중 아무도 안 하는 것을 골라라.</div>
+          </div>
+        </div>
+        <div class="pattern">
+          <div class="no">02</div>
+          <div>
+            <h4>이해관계자 정의가 구조적 뼈대가 된다</h4>
+            <p class="ev"><b>O.K</b>의 페르소나 이름이 락스크린·모달 칩까지 재사용되고, <b>E.S.C.</b>의 3주체가 3색·앱 3종·3D 로고 3종에 1:1 대응. 리서치 챕터와 디자인 챕터가 같은 인물·같은 데이터로 채워진다.</p>
+            <div class="do"><span class="k">실행 지침</span> — 페르소나를 문제 제기용 인용문으로 소비하고 끝내지 마라. 그 정의가 컬러 시스템·IA·UI 더미 데이터·목업 콘텐츠까지 내려가야 한다.</div>
+          </div>
+        </div>
+        <div class="pattern">
+          <div class="no">03</div>
+          <div>
+            <h4>컬러가 정보를 운반한다</h4>
+            <p class="ev"><b>O.K</b>는 블루=경미 / 오렌지=긴급의 위험도 시맨틱, <b>E.S.C.</b>는 주체 구분 신호. 두 해 공통의 출품작 표준 문법(키컬러 1색 + 단색 배경 목업)과 격이 다른 지점.</p>
+            <div class="do"><span class="k">실행 지침</span> — 컬러에 역할(위험도 등급, 사용자 주체, 상태)을 배분하고 그 규칙이 모든 화면에서 깨지지 않음을 목업으로 증명하라. 단, 주체 축과 상태 축은 분리할 것.</div>
+          </div>
+        </div>
+        <div class="pattern">
+          <div class="no">04</div>
+          <div>
+            <h4>조형 결정에 논증을 붙이고 실물 증거로 닫는다</h4>
+            <p class="ev"><b>O.K</b>의 KRDS·Pretendard GOV·자간 -5%/행간 150% 수치 고정, <b>E.S.C.</b>의 컨셉 문장이 썸네일까지 무이탈. 무드보드와 실제 화면이 단절되면 선언은 감점 요인이 된다.</p>
+            <div class="do"><span class="k">실행 지침</span> — "왜 이 서체, 왜 이 스타일인가"에 주제로부터 도출된 답을 붙이고, 키워드→실제 UI의 추적 가능성을 이미지로 남겨라.</div>
+          </div>
+        </div>
+        <div class="pattern">
+          <div class="no">05</div>
+          <div>
+            <h4>멀티디바이스 시스템 + 매체 선택 근거를 명시한다</h4>
+            <p class="ev"><b>O.K</b>의 Device 챕터(태블릿=핵심 / 워치=긴급·즉각 / 키오스크=공용), <b>E.S.C.</b>의 3주체 + 차량 iPad. 동기 대부분은 단일 사용자군 앱 1개.</p>
+            <div class="do"><span class="k">실행 지침</span> — "왜 이 폼팩터인가"를 기기 특성 × 상황 매트릭스로 논증하는 챕터를 문제와 솔루션 사이에 끼워 넣어라. 이것이 화면 디자인과 서비스 설계를 가르는 지점이다.</div>
+          </div>
+        </div>
+        <div class="pattern">
+          <div class="no">06</div>
+          <div>
+            <h4>예외 상황을 구체적 UI 컨트롤로 환원한다</h4>
+            <p class="ev"><b>O.K</b>의 5대 사고 유형·양손 제약·이원 시그널, <b>E.S.C.</b>의 골목없는 경로 21분·547m 트래킹·의식상태 분기. 페인포인트마다 "그래서 이 버튼이 생겼다"가 추적된다.</p>
+            <div class="do"><span class="k">실행 지침</span> — 예외 상황 하나가 화면의 구체적 컨트롤로 번역된 사례의 수가 곧 기능 정의의 해상도다.</div>
+          </div>
+        </div>
+        <div class="pattern">
+          <div class="no">07</div>
+          <div>
+            <h4>쇼케이스를 '동작하는 제품 시연'으로 만든다</h4>
+            <p class="ev"><b>O.K</b>의 영상 29개 자동재생 + 실동작 챗봇 내장(관람→사용 전환), <b>E.S.C.</b>의 영상 15개 + 크로스디바이스 일치 데이터. 정적 스크린샷과 별창 Figma 링크가 표준 문법인 판에서 결정적 차별점.</p>
+            <div class="do"><span class="k">실행 지침</span> — 핵심 플로우는 자동재생 영상으로, 가능하면 하나라도 실동작 데모(폴백 영상 필수)로 내장하라. 심사 3분을 가정해 상단에 문제-솔루션-임팩트 요약 레이어를 두어라.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========== 05 함정 ========== -->
+    <section id="pitfalls">
+      <div class="eyebrow">감점 지대의 지도</div>
+      <h2 class="sec-title">평가자가 지적한 약점,<br>피해야 할 함정 19</h2>
+      <p class="sec-lead">최우수작조차 감점 지대를 남겼다. 이 목록은 <strong>우리가 선배들보다 잘할 수 있는 지점</strong>의 지도다.</p>
+
+      <div class="pitfall-group">
+        <h3><span class="g">A</span>리서치 · 근거 — 두 팀 공통 최대 감점 지대</h3>
+        <div class="pitfall-cards">
+          <div class="pitfall"><span class="who">두 팀 공통</span><h4>1. 1차 리서치 부재</h4><p>두 팀 모두 현장 인터뷰·관찰이 없다. <span class="fix">전문가 인터뷰 1건, 최소 "현직 N인 인터뷰(연월)" 한 줄이라도 확보할 것.</span></p></div>
+          <div class="pitfall"><span class="who">O.K / E.S.C.</span><h4>2. 통계 출처 미표기 · 정량 근거 전무</h4><p>숫자를 쓸수록 각주가 필요하다. <span class="fix">모든 숫자에 기관·연도·문헌 각주 필수.</span></p></div>
+          <div class="pitfall"><span class="who">E.S.C.</span><h4>3. 기존 제도와의 차별성 논증 생략</h4><p>중앙응급의료센터 종합상황판이 왜 실패하는지 없이 솔루션을 전제했다. <span class="fix">기존 시스템 실패 분석 1페이지가 곧 리서치 깊이.</span></p></div>
+          <div class="pitfall"><span class="who">O.K</span><h4>4. 효과 검증 설계 부재</h4><p>도입 시 무엇을 측정할지 없이 끝난다. <span class="fix">KPI를 명시해 기획의 마지막 고리를 닫아라.</span></p></div>
+        </div>
+      </div>
+
+      <div class="pitfall-group">
+        <h3><span class="g">B</span>윤리 · 법적 실현 가능성</h3>
+        <div class="pitfall-cards">
+          <div class="pitfall"><span class="who">O.K</span><h4>5. 감시·인권 관점 침묵</h4><p>생체 모니터링·위치추적·AI 위험도 산출의 프라이버시 쟁점 무검토. <span class="fix">가장 예상 가능한 반론을 방치하지 말 것.</span></p></div>
+          <div class="pitfall"><span class="who">E.S.C.</span><h4>6. 민감 개인정보 법적 근거 무검토</h4><p>혈액형·복용약·임신여부를 전제하면서 개인정보보호법·의료법 검토가 없다. <span class="fix">최소 동의 화면 1장이라도 설계.</span></p></div>
+        </div>
+      </div>
+
+      <div class="pitfall-group">
+        <h3><span class="g">C</span>시스템 설계의 이면</h3>
+        <div class="pitfall-cards">
+          <div class="pitfall"><span class="who">두 팀 공통</span><h4>7. 실패 모드 미정의</h4><p>NFC 실패·네트워크 단절·AI 오탐(O.K), 병원 매칭 거부 시 재매칭(E.S.C.). <span class="fix">실패 플로우를 화면으로 정의해야 블랙박스를 면한다.</span></p></div>
+          <div class="pitfall"><span class="who">O.K</span><h4>8. 페르소나-솔루션 커버리지 불균형</h4><p><span class="fix">페르소나 N인이면 태스크 플로우도 N개.</span> 관리자 니즈를 공용 대시보드로 뭉뚱그리지 말 것.</p></div>
+          <div class="pitfall"><span class="who">E.S.C.</span><h4>9. 문제-솔루션 개수 비대칭</h4><p>상단 문제정의 2개 vs 솔루션 3개. <span class="fix">문제 N개 = 솔루션 N개 대칭을 상단에서 완성하라.</span> 빠르게 훑는 심사위원에게 논리가 닫혀 보여야 한다.</p></div>
+          <div class="pitfall"><span class="who">O.K</span><h4>10. MVP / 확장 우선순위 부재</h4><p><span class="fix">단계 로드맵 없이 4축으로 벌리면 근거 대비 과장으로 읽힌다.</span></p></div>
+        </div>
+      </div>
+
+      <div class="pitfall-group">
+        <h3><span class="g">D</span>마감 · 위생 — 완성도를 스스로 깎는 자책골</h3>
+        <div class="pitfall-cards">
+          <div class="pitfall"><span class="who">E.S.C.</span><h4>11. 오탈자</h4><p>심사위원이 가장 먼저 정독하는 문제정의 문단의 "일일히", "연략해야한다" — 리서치 정밀도 전체를 의심하게 만든다. <span class="fix">제3자 전수 교열은 디자인 업무다.</span></p></div>
+          <div class="pitfall"><span class="who">O.K</span><h4>12. 에셋 · 코드 위생</h4><p>파일명 fuckdong.png, 번들에 평문 노출된 시스템 프롬프트 — 개발자 도구를 여는 심사위원·리크루터에게 발견되는 순간 신뢰 붕괴. <span class="fix">파일명·번들 전수 점검 필수.</span></p></div>
+          <div class="pitfall"><span class="who">두 팀 공통</span><h4>13. 외부 에셋 의존</h4><p>free-mockup·Midjourney(O.K), Phosphor·Unsplash·Sketchfab(E.S.C.). 출처 공개는 모범이나 자체 조형 비중이 얇으면 브랜딩 신뢰가 깎인다. <span class="fix">자체 제작 그래픽 모티프를 최소 1축 확보하라.</span></p></div>
+        </div>
+      </div>
+
+      <div class="pitfall-group">
+        <h3><span class="g">E</span>전달 · 프레젠테이션</h3>
+        <div class="pitfall-cards">
+          <div class="pitfall"><span class="who">E.S.C.</span><h4>14. 핵심 증거의 배치 실패</h4><p>최종 시연 영상이 페이지 최하단 클릭 재생 — 3분 심사에서 도달하지 않는다. <span class="fix">시연 영상은 상단 노출 또는 자동재생.</span></p></div>
+          <div class="pitfall"><span class="who">O.K</span><h4>15. 라이브 데모의 단일 장애점</h4><p>외부 백엔드가 죽으면 최강 섹션이 빈 화면. <span class="fix">라이브 데모에는 녹화 영상 자동 폴백을 반드시 심을 것.</span></p></div>
+          <div class="pitfall"><span class="who">O.K</span><h4>16. 성능 리스크</h4><p>629KB 단일 번들 + 자동재생 영상 29개. <span class="fix">lazy-load·코드 스플리팅 필수 — 심사 현장 네트워크에서 첫 3초가 전부다.</span></p></div>
+          <div class="pitfall"><span class="who">E.S.C.</span><h4>17. 프레이밍 공백</h4><p>학교·학과·전시 맥락 언급 0건 — 링크만 받은 외부 심사자에게 프레임이 비어 있다. <span class="fix">푸터에 전시 맥락을 명시하라.</span></p></div>
+          <div class="pitfall"><span class="who">O.K</span><h4>18. 로고의 감성 서술</h4><p>"정부기관 감성 + 세련됨" 수준의 설명은 반드시 찔린다. <span class="fix">모티프 도출·그리드 전개 근거를 문장으로 준비하라.</span></p></div>
+          <div class="pitfall"><span class="who">E.S.C.</span><h4>19. 포지셔닝 카피 불일치</h4><p>히어로("구급대원을 위한 앱")와 본문(3주체 플랫폼)이 어긋나면 설득력이 반감. <span class="fix">첫 문장과 시스템 구조를 일치시켜라.</span></p></div>
+        </div>
+      </div>
+
+      <div class="pitfall-summary">
+        이 공식에 <b>"인터뷰 1건 + 법적 실현 가능성 1페이지 + 제3자 교열 + 실패 모드 화면 1장"</b>만 더해도, 두 최우수작이 받은 감점 지대를 통째로 회피할 수 있다.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========== 06 전략 ========== -->
+    <section id="strategy">
+      <div class="eyebrow">기획 2 + 디자인 5 · 개발자 0</div>
+      <h2 class="sec-title">우리 팀 전략</h2>
+      <p class="sec-lead">전제를 정확히 하자. 우리의 약점과 강점은 명확하고, 둘 다 대응 가능하다.</p>
+
+      <div class="strategy-intro">
+        <div class="si-card weak">
+          <div class="t">구조적 약점</div>
+          <p>패턴 7의 <b>"동작하는 증거"를 만들 개발자가 없다.</b> 그러나 E.S.C.의 웹은 프레임워크 없는 정적 HTML + jQuery를 개발자 1인이 3주에 만든 물건이다 — 이 수준은 AI 코딩 도구로 충분히 도달 가능하고, 우리 팀은 이미 Claude Code로 쇼케이스 HTML을 만들어본 경험으로 이를 입증했다.</p>
+        </div>
+        <div class="si-card strong">
+          <div class="t">구조적 강점</div>
+          <p><b>디자이너 5명.</b> O.K(디자이너 4), E.S.C.(디자이너 3)보다 조형 생산력이 크다. 두 작품의 핵심 설득 장치는 코드가 아니라 "영상 + 목업 품질 + 내러티브"였다 — 전부 디자이너의 무기다.</p>
+        </div>
+      </div>
+
+      <!-- 5-a -->
+      <div class="sub-block">
+        <h3><span class="step-no">전략 A</span>주제 선정 기준과 후보 방향</h3>
+        <p class="sub-lead">수상작 검증 요인에서 도출한 4가지 기준. 네 가지 모두 통과하는 주제를 골라라.</p>
+        <div class="criteria">
+          <div class="criterion"><div class="cn">기준 1</div><p><b>심사위원이 이미 심각성을 아는, 뉴스에 나오는 공공·시스템 문제인가</b> — E.S.C.의 '응급실 뺑뺑이' 기준.</p></div>
+          <div class="criterion"><div class="cn">기준 2</div><p><b>법령·정부 계획·공식 통계로 근거 스택을 쌓을 수 있는가</b> — O.K의 직무규칙 제34조 → 교정기본계획 → AI 95% 기준.</p></div>
+          <div class="criterion"><div class="cn">기준 3</div><p><b>이해관계자가 2주체 이상</b>이어서 시스템 설계(멀티 앱/멀티 디바이스)로 확장되는가.</p></div>
+          <div class="criterion"><div class="cn">기준 4</div><p><b>동기 팀들이 안 할 만큼 접근이 어렵거나 무거운가</b> — 주제 확정 전 반드시 동기들의 주제 분포를 먼저 조사할 것.</p></div>
+        </div>
+        <div class="topics">
+          <div class="topic"><div class="tn">1</div><div><h4>1인 가구 고독사 · 위기가구 발굴 시스템</h4><p>사회보장급여법·복지 사각지대 발굴 시스템(행복e음)이라는 <b>기존 제도가 있어 "왜 실패하는가" 논증 가능</b>. 사회복지 공무원 / 이웃·신고자 / 당사자 3주체. 프라이버시 쟁점 1페이지까지 설계하면 O.K가 놓친 지점을 정면 돌파.</p></div></div>
+          <div class="topic"><div class="tn">2</div><div><h4>학대아동 조기 발견 · 신고 연계 시스템</h4><p>아동복지법·아동학대처벌법 + 전담공무원/경찰/의료진/교사의 <b>다자간 조율 문제</b>. 접근 어려운 폐쇄 도메인이라는 점에서 O.K형 희소성.</p></div></div>
+          <div class="topic"><div class="tn">3</div><div><h4>전세사기 예방 · 피해자 대응 통합 플랫폼</h4><p>전세사기특별법이라는 최신 법령, HUG·등기부 공공데이터, 임차인/공인중개사/보증기관 3주체. <b>"지금 뉴스에 나오는" 시의성 최상.</b></p></div></div>
+          <div class="topic"><div class="tn">4</div><div><h4>산업재해 현장 안전 관제 시스템</h4><p>중대재해처벌법 + 고용노동부 스마트 안전장비 보급 사업이 <b>O.K의 "정부 로드맵의 다음 단계" 논법을 그대로 재현</b>. 작업자 워치 / 관리자 태블릿 / 안전보건공단 대시보드의 멀티디바이스 구조가 자연스럽다.</p></div></div>
+          <div class="topic"><div class="tn">5</div><div><h4>재난 시 취약계층 이송 우선순위 시스템</h4><p>투석·산소호흡기 환자 등 감염병·재난 시 이송 우선순위. <b>E.S.C.의 응급 도메인을 계승하되 미개척 틈새.</b> 병원/소방/지자체 3주체.</p></div></div>
+        </div>
+        <div class="callout">
+          어느 쪽이든 확정 즉시 할 일: <b>해당 도메인 현직자·전문가 인터뷰 1건 섭외</b> (교수 네트워크·지인·공공기관 민원 창구 활용). 두 최우수작 모두 이것이 없어서 최대 감점 지대를 남겼다 — 우리는 인터뷰 1건만으로 선배들이 못 가진 무기를 갖는다.
+        </div>
+      </div>
+
+      <!-- 5-b -->
+      <div class="sub-block">
+        <h3><span class="step-no">전략 B</span>개발자 없이 완성도 확보하기</h3>
+        <p class="sub-lead">기술 눈높이의 진실: E.S.C.의 웹은 정적 HTML + jQuery + Three.js(CDN)이고, O.K의 핵심 설득 장치는 코드가 아니라 영상 29개 + 목업 품질 + 내러티브였다.</p>
+        <div class="build-cols">
+          <div class="build-col go">
+            <h4>AI 코딩으로 구현한다 — 가능 판정</h4>
+            <ul>
+              <li><b>쇼케이스 사이트</b> — 챕터형 멀티페이지(O.K식) 또는 앵커 원페이지(E.S.C.식). GSAP 스크롤 인, 호버 블러 포커스, 드래그 캐러셀, 자동재생 영상, lazy-load까지 전부 가능. 이미 팀이 해본 영역.</li>
+              <li><b>Three.js 3D 로고/오브젝트</b> — 3D 모델링은 디자이너가 Blender/Spline로 만들고, 웹 탑재만 AI 코딩으로.</li>
+              <li><b>소품 인터랙션</b> — 로고 그리드 드로잉 애니메이션, 타이포 모션, 페르소나 호버 스와프 전부 가능.</li>
+              <li><b>라이브 AI 데모 1개</b> — O.K의 OK-E와 동급을 Claude API로 구현 가능. 단 O.K의 실패를 반복하지 말 것: 녹화 영상 자동 폴백 내장, 프롬프트는 서버 측 보관, 데모 범위는 1개 시나리오로 좁게.</li>
+              <li><b>앱의 "동작" 증거</b> — 실코딩 앱 대신 Figma + ProtoPie 프로토타입을 화면 녹화한 영상을 자동재생 임베드. O.K의 영상 29개도 실기기 앱이 아니라 UI 영상이었다 — 심사위원이 보는 것은 영상이다.</li>
+            </ul>
+          </div>
+          <div class="build-col stop">
+            <h4>포기한다 — 하지 않을 것</h4>
+            <ul>
+              <li><b>네이티브 앱 / 실서비스 백엔드 / DB / 로그인</b> 등 실제 소프트웨어 개발. 심사에 기여하지 않는다.</li>
+              <li><b>복잡한 실시간 기능</b>(지도 실연동, 푸시). 영상 시나리오로 대체.</li>
+              <li><b>프레임워크 고집.</b> 정적 HTML로도 E.S.C. 수준이 나온다. AI 도구가 잘 다루면 써도 무방하되, 629KB 단일 번들 같은 성능 함정을 피하도록 빌드 결과를 반드시 점검.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="gate">
+          <h4>품질 게이트 — 제출 전 반드시 수행</h4>
+          <ul>
+            <li>개발자 도구 열고 파일명·번들 문자열 전수 점검 (fuckdong.png 참사 방지)</li>
+            <li>현장 네트워크 가정 첫 3초 로딩 테스트, 영상 lazy-load</li>
+            <li>시연 영상은 상단 자동재생 (최하단 클릭 재생 실패 방지)</li>
+            <li>푸터에 학교·학과·전시 맥락 + 면책 + AI 활용 고지 명시</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5-c -->
+      <div class="sub-block">
+        <h3><span class="step-no">전략 C</span>7명 역할 분담</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>역할</th><th>인원</th><th>담당</th></tr></thead>
+            <tbody>
+              <tr><td>기획 A<br>PM · 리서치 리드</td><td>1</td><td>법령·정책·통계 근거 스택 구축, 전문가 인터뷰 섭외·수행, 기존 제도 실패 분석 1페이지, KPI·윤리/법 검토 페이지, 전체 일정 관리</td></tr>
+              <tr><td>기획 B<br>서비스 설계 · 카피</td><td>1</td><td>이해관계자 정의→IA→태스크 플로우(페르소나 N=플로우 N), 기기×상황 매트릭스 챕터, 실패 모드 플로우, 쇼케이스 전체 카피, 문제 N=솔루션 N 대칭 점검, 제3자 교열 총괄</td></tr>
+              <tr><td>디자인 1<br>브랜딩 리드</td><td>1</td><td>로고(그리드 근거→모션→변주 운용 체계), 컬러 시맨틱 시스템 설계(주체 축과 상태 축 분리), 디자인 토큰·서체 논증, 전시 썸네일·포스터</td></tr>
+              <tr><td>디자인 2·3<br>프로덕트 UI</td><td>2</td><td>주체/디바이스별 UI 화면 전량, 세계관 더미 데이터 통제(페르소나 이름·날짜·장소를 전 화면 일관), 엣지케이스 화면(실패 모드·동의 화면 포함), Figma/ProtoPie 프로토타입</td></tr>
+              <tr><td>디자인 4<br>모션 · 영상</td><td>1</td><td>기능별 UI 시연 영상 15개+ 제작(O.K식 기능 분해), 최종 시연 영상, 어노테이션, 히어로 영상</td></tr>
+              <tr><td>디자인 5<br>웹 · 3D — AI 코딩 담당</td><td>1</td><td>Claude Code로 쇼케이스 사이트 구현, Three.js/Spline 3D 에셋 탑재, 라이브 데모 1개+폴백, 성능·에셋 위생 게이트</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="timeline-note"><b>주 1회 전원 교차 점검.</b> "리서치 챕터의 인물·수치가 디자인 챕터 화면에 그대로 있는가"(패턴 2), "무드보드 키워드가 실제 화면에 있는가"(패턴 4)를 체크리스트로 상호 검증.</div>
+      </div>
+
+      <!-- 5-d -->
+      <div class="sub-block">
+        <h3><span class="step-no">전략 D</span>산출물 체크리스트 — 수상작 수준 기준</h3>
+        <div class="check-groups">
+          <div class="check-group">
+            <h4>쇼케이스 사이트</h4>
+            <ul>
+              <li><b>챕터 넘버링 구조(O.K 6챕터) 또는 3색 내비게이션 원페이지(E.S.C.)</b> — 3분 심사 점프 가능</li>
+              <li>상단에 문제-솔루션-임팩트 요약 레이어 + 시연 영상 자동재생</li>
+              <li>문제 근거 카드: 법령 조문 1 + 정부 계획 1 + 통계 3 (전부 기관·연도 각주)</li>
+              <li>전문가 인터뷰 1건 표기 ("현직 OO N인 인터뷰, 2026.OO")</li>
+              <li>기존 제도 실패 분석 1페이지 + 윤리/법 검토 1페이지 + KPI 정의</li>
+              <li>디바이스/매체 선택 근거 챕터 (문제와 솔루션 사이)</li>
+              <li>MVP vs 확장 단계 로드맵</li>
+              <li>푸터: 학교·학과·캡스톤 맥락, 면책, AI 활용 고지, 에셋 출처, 팀 크레딧</li>
+            </ul>
+          </div>
+          <div class="check-group">
+            <h4>프로토타입 · 데모</h4>
+            <ul>
+              <li><b>기능별 UI 시연 영상 15개 이상</b> (핵심 기능 1개는 O.K처럼 5~7편 분해)</li>
+              <li>실동작 데모 1개(AI 챗봇 또는 인터랙티브 시뮬레이션) + 녹화 영상 자동 폴백</li>
+              <li>크로스디바이스에서 일치하는 가상 시나리오 데이터 (동일 인물·동일 시각)</li>
+              <li>엣지케이스 화면 3종 이상: 실패 모드 1, 예외 분기 1, 동의/권한 화면 1</li>
+            </ul>
+          </div>
+          <div class="check-group">
+            <h4>브랜딩 · 비주얼</h4>
+            <ul>
+              <li>컬러 시맨틱 규칙 명문화 + 전 화면 무이탈 증명 (주체 축/상태 축 분리)</li>
+              <li>로고 운용 체계 (그리드 근거→모션→3D 또는 변주)</li>
+              <li>스타일 키워드→실제 화면 매핑 이미지</li>
+              <li>자체 제작 그래픽 모티프 최소 1축 (외부 에셋 의존 상쇄)</li>
+              <li><b>전시 썸네일: 동기 그리드에서 물리적으로 차별되는 대비 전략</b> (E.S.C. 다크+네온 사례)</li>
+            </ul>
+          </div>
+          <div class="check-group">
+            <h4>위생 · 품질</h4>
+            <ul>
+              <li>제3자 전수 교열 (특히 문제정의 문단)</li>
+              <li>파일명·번들 문자열 전수 점검</li>
+              <li>첫 3초 로딩 테스트, 영상 lazy-load</li>
+              <li>히어로 첫 문장 = 시스템 구조 일치 확인</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5-e -->
+      <div class="sub-block">
+        <h3><span class="step-no">전략 E</span>일정 프레임</h3>
+        <p class="sub-lead">참고 실측치: O.K 웹 빌드 7~8주(83+커밋), E.S.C. 웹 3주(개발자 1인). 전시는 11월 넷째 주. 1학기 리서치 병행 ~ 2학기 완성 기준의 역산 프레임.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>단계</th><th>기간</th><th>핵심 산출물</th><th>담당 중심</th></tr></thead>
+            <tbody>
+              <tr><td>0. 주제 정찰</td><td>2주</td><td>동기 팀 주제 분포 조사, 후보 3개 근거 스택 가능성 검증, 주제 확정</td><td>기획 2</td></tr>
+              <tr><td>1. 리서치</td><td>4주</td><td>법령·정책·통계 스택, 전문가 인터뷰 1건, 기존 제도 실패 분석, 이해관계자·페르소나 정의</td><td>기획 2 + 디자인 1</td></tr>
+              <tr><td>2. 컨셉</td><td>3주</td><td>시스템 아키텍처(주체×디바이스 매트릭스), IA·태스크 플로우, 네이밍·컬러 시맨틱·로고, 디자인 토큰 확정</td><td>전원</td></tr>
+              <tr><td>3. 디자인</td><td>6주</td><td>전 화면 UI(엣지케이스 포함), 세계관 더미 데이터, 프로토타입, 1차 심사 대응</td><td>디자인 5</td></tr>
+              <tr><td>4. 구현 · 영상</td><td>6주</td><td>쇼케이스 사이트(AI 코딩), 시연 영상 15개+, 라이브 데모+폴백, 2차 심사 대응</td><td>디자인 4·5 리드, 전원 에셋 공급</td></tr>
+              <tr><td>5. 마감 · 전시</td><td>3주</td><td>제3자 교열, 위생·성능 게이트, 썸네일·포스터·전시물, 리허설(3분 심사 시뮬레이션)</td><td>전원</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="timeline-note"><b>운영 원칙.</b> 학과 심사가 1차·2차 라운드형이므로(학생 인터뷰로 확인된 사실), 3단계 말에 1차 심사용 "문제-솔루션-임팩트" 완결본, 4단계 말에 2차 심사용 동작 증거 완결본을 맞추는 2단 목표로 일정을 건다. O.K팀도 1차 심사 후 피드백 수정 사이클을 돌았다.</div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========== 07 부록 ========== -->
+    <section id="appendix">
+      <div class="eyebrow">출처와 한계</div>
+      <h2 class="sec-title">부록</h2>
+      <div class="appx-grid">
+        <div class="appx">
+          <h4>분석 대상 사이트</h4>
+          <ul>
+            <li><b>O.K</b> — <a href="https://mnmnlilimnmnlil.github.io/OK/" target="_blank" rel="noopener">mnmnlilimnmnlil.github.io/OK</a> (repo 2025.09.30 생성 ~ 11.20 집중 커밋)</li>
+            <li><b>E.S.C.</b> — <a href="https://emergency-system-center.github.io/ESC/" target="_blank" rel="noopener">emergency-system-center.github.io/ESC</a> (org 2024.10.31 생성)</li>
+          </ul>
+        </div>
+        <div class="appx">
+          <h4>학과 전시 사이트</h4>
+          <ul>
+            <li><b>2025 PIVOT-TIME (20팀)</b> — <a href="http://www.digital-media.kr/degreeshow/2025/" target="_blank" rel="noopener">digital-media.kr/degreeshow/2025</a></li>
+            <li><b>2024 BE[bi:] (21팀)</b> — <a href="http://www.digital-media.kr/degreeshow/2024/" target="_blank" rel="noopener">digital-media.kr/degreeshow/2024</a></li>
+            <li><b>2023 Bang!</b> — <a href="http://www.digital-media.kr/degreeshow/2023/" target="_blank" rel="noopener">digital-media.kr/degreeshow/2023</a></li>
+            <li><b>2024 공개 DB</b> — jinjintv.pockethost.io/api/collections/projects/records</li>
+          </ul>
+        </div>
+        <div class="appx">
+          <h4>참고 외부 자료</h4>
+          <ul>
+            <li>계원조형예술제 — kaywondegreeshow.online</li>
+            <li>대학저널 학과 소개 (산업체 리크루팅 언급) — m.dhnews.co.kr/news/view/179513432154437</li>
+            <li>학과 공식 채널 — Instagram @kw_dmd · cafe.naver.com/kwdmd</li>
+          </ul>
+        </div>
+        <div class="appx">
+          <h4>내부 분석 리포트 (원본 근거)</h4>
+          <ul>
+            <li>report_ok.md · report_esc.md</li>
+            <li>report_pivot2025.md · report_be2024.md</li>
+            <li>report_research.md (외부 리서치)</li>
+            <li>졸업작품_최우수작_분석_및_전략.md (전문)</li>
+          </ul>
+        </div>
+      </div>
+      <p class="disclaimer">한계 고지 — 두 전시 사이트·DB에 수상 표기가 없어 "최우수작" 지위는 사이트 근거로 검증 불가(외부 전언). 최우수/우수 선정 기준·심사위원 구성도 공개 자료 없음. 본 리포트의 비교 우위 판단은 동기 출품작 전수 목록 + 샘플 8~9곳 실견 대조에 근거하며, 수상 요인 후보 40건 중 적대적 검증을 통과한 24건만 수록했다.</p>
+    </section>
+
+  </main>
+</div>
+
+<script>
+(function () {
+  var links = document.querySelectorAll('#nav a');
+  var sections = [];
+  links.forEach(function (a) {
+    var sec = document.querySelector(a.getAttribute('href'));
+    if (sec) sections.push({ a: a, sec: sec });
+  });
+  function onScroll() {
+    var pos = window.scrollY + window.innerHeight * 0.3;
+    var current = sections[0];
+    sections.forEach(function (s) {
+      if (s.sec.offsetTop <= pos) current = s;
+    });
+    links.forEach(function (a) { a.classList.remove('active'); });
+    if (current) current.a.classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
