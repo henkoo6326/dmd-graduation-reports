@@ -95,7 +95,29 @@ tbody tr:last-child td{border-bottom:none;}
 .disclaimer{margin-top:24px;font-size:13px;color:var(--gray);line-height:1.6;border-top:1px solid var(--fill-2);padding-top:20px;}
 @media (max-width:1100px){.cc-two,.two{grid-template-columns:1fr;}}
 @media (max-width:900px){.layout{padding:0 20px;display:block;}.side{position:static;height:auto;border-right:none;border-bottom:1px solid var(--fill-2);padding:32px 0 24px;}.side nav{flex-direction:row;flex-wrap:wrap;gap:6px;}.side nav a{padding:7px 12px;background:var(--fill);border-radius:100px;font-size:13px;}.side .side-foot{display:none;}.main{padding:8px 0 80px;}}
-</style></head><body>
+</style><style id="navx-css">
+.navx-bar{display:flex;align-items:center;gap:8px;margin-bottom:16px;}
+.navx-ham{display:inline-flex;flex-direction:column;justify-content:center;gap:3px;width:36px;height:36px;flex-shrink:0;border:1px solid var(--fill-2);border-radius:10px;background:#fff;cursor:pointer;padding:0 9px;}
+.navx-ham span{display:block;height:2px;background:var(--ink-2);border-radius:2px;}
+.navx-home{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--ink-2);background:var(--fill);border-radius:100px;padding:9px 16px;white-space:nowrap;}
+.navx-home:hover{background:var(--fill-2);text-decoration:none;}
+#nav{flex:1 1 auto;min-height:0;overflow-y:auto;}
+#nav .navx-group{display:flex;flex-direction:column;}
+#nav .navx-prow{display:flex;align-items:center;gap:2px;}
+#nav .navx-prow > a{flex:1;min-width:0;}
+#nav .navx-caret{flex-shrink:0;width:28px;height:30px;border:none;background:transparent;cursor:pointer;color:var(--gray-2);display:flex;align-items:center;justify-content:center;border-radius:7px;}
+#nav .navx-caret:hover{background:var(--fill);color:var(--ink-2);}
+#nav .navx-caret svg{transition:transform .2s;}
+#nav .navx-group.open > .navx-prow .navx-caret svg{transform:rotate(90deg);}
+#nav .navx-sub{display:none;flex-direction:column;gap:1px;margin:2px 0 8px 20px;}
+#nav .navx-group.open > .navx-sub{display:flex;}
+#nav .navx-sub a{display:block;padding:6px 12px;border-radius:8px;font-size:13px;font-weight:500;color:var(--gray);line-height:1.4;}
+#nav .navx-sub a:hover{background:var(--fill);color:var(--ink);text-decoration:none;}
+#nav .navx-sub a .sn{font-variant-numeric:tabular-nums;font-weight:700;color:var(--gray-2);margin-right:7px;font-size:11px;}
+.side.navx-collapsed #nav{display:none;}
+@media (max-width:900px){.side.navx-collapsed #nav{display:none;}.navx-bar{margin-bottom:12px;}}
+</style>
+</head><body>
 <div class="layout">
   <aside class="side">
     <div class="mark">Kaywon DMD · Competitive Scan</div>
@@ -317,5 +339,52 @@ tbody tr:last-child td{border-bottom:none;}
 links.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s)secs.push({a:a,s:s});});
 function o(){var p=window.scrollY+window.innerHeight*0.3,c=secs[0];secs.forEach(function(x){if(x.s.offsetTop<=p)c=x;});links.forEach(function(a){a.classList.remove('active');});if(c)c.a.classList.add('active');}
 window.addEventListener('scroll',o,{passive:true});o();})();
+</script>
+<script>
+/* navx: home button + hamburger + dropdown sub-nav (runtime, structure-agnostic) */
+(function(){
+ try{
+  var side=document.querySelector('.side'); var nav=document.getElementById('nav');
+  if(!side||!nav||side.querySelector('.navx-bar')) return;
+  var bar=document.createElement('div'); bar.className='navx-bar';
+  var ham=document.createElement('button'); ham.type='button'; ham.className='navx-ham'; ham.setAttribute('aria-label','\uba54\ub274 \uc811\uae30/\ud3bc\uce58\uae30'); ham.innerHTML='<span></span><span></span><span></span>';
+  var home=document.createElement('a'); home.className='navx-home'; home.href='index.html'; home.innerHTML='\u2190 \ubaa9\ucc28\ub85c';
+  bar.appendChild(ham); bar.appendChild(home);
+  side.insertBefore(bar, side.firstChild);
+  ham.addEventListener('click', function(){ side.classList.toggle('navx-collapsed'); });
+
+  var caret='<svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><path d="M2 0 L6 4 L2 8" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>';
+  var tops=Array.prototype.slice.call(nav.querySelectorAll(':scope > a'));
+  tops.forEach(function(a){
+    var href=a.getAttribute('href')||''; if(href.charAt(0)!=='#') return;
+    var sec=document.getElementById(href.slice(1)); if(!sec) return;
+    var subs=Array.prototype.slice.call(sec.querySelectorAll('[id]')).filter(function(el){
+      if(!el.id||el===sec) return false;
+      return el.querySelector('.c-title,.t-title,.rec-title,.cc-name,h3,h4') || /^(c|s|t)\d+$/.test(el.id);
+    });
+    if(subs.length===0) return;
+    var group=document.createElement('div'); group.className='navx-group';
+    var prow=document.createElement('div'); prow.className='navx-prow';
+    a.parentNode.insertBefore(group, a);
+    prow.appendChild(a);
+    var c=document.createElement('button'); c.type='button'; c.className='navx-caret'; c.setAttribute('aria-label','\ud558\uc704 \ubaa9\ub85d'); c.innerHTML=caret;
+    prow.appendChild(c); group.appendChild(prow);
+    var sub=document.createElement('div'); sub.className='navx-sub';
+    subs.forEach(function(el){
+      var numEl=el.querySelector('.c-num,.rank,.arc-n,.no');
+      var tEl=el.querySelector('.c-title,.t-title,.rec-title,.cc-name,h3,h4');
+      var txt=((tEl?tEl.textContent:el.id)||'').trim();
+      txt=txt.split(' \u2014 ')[0].split('(')[0].trim();
+      if(txt.length>20) txt=txt.slice(0,20)+'\u2026';
+      var sa=document.createElement('a'); sa.href='#'+el.id;
+      sa.innerHTML=(numEl?'<span class="sn">'+numEl.textContent.trim()+'</span>':'')+txt;
+      sub.appendChild(sa);
+    });
+    group.appendChild(sub);
+    if(subs.length>=5) group.classList.add('open');
+    c.addEventListener('click', function(e){ e.preventDefault(); group.classList.toggle('open'); });
+  });
+ }catch(e){}
+})();
 </script>
 </body></html>
